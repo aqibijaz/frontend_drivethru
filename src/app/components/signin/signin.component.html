@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="login_form">
+        <div class="col-12 row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="col-sm-12">
+                    <router-outlet></router-outlet>
+                    <div class="Login_left pageWrapper">
+                        <div>
+                            <div class="signin-text mb-2">Sign In To</div>
+                            <img style="width: 100px; height: 100px;" src="./assets/img/app-logo.jpeg">
+                            <form novalidate="" action="/addtional-details" class="ng-valid ng-dirty ng-touched mt-3">
+                                <input type="text" formcontrolname="username" placeholder="Email"
+                                    class="user form-control ng-valid ng-dirty ng-touched">
+                                <div class="input-group1">
+                                    <input type="password" formcontrolname="password" placeholder="Password"
+                                        class="Password mt-3 form-control">
+                                </div>
+                                <a class="forgot_password">Forgot Your Password?</a>
+                                <input type="submit" value="SIGN IN" class="btn" (click)="submitForm()">
+                            </form>
+                        </div>
+                        <div>
+                            <p class="mt-30 account_p"> Don't have an account? <a routerLink="signup"
+                                    class="theme_colr font_weight font-bold">Sign Up Now</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="row">
+                    <div class="Login_right">
+                        <div class="Login-right-text">
+                            <img style="width: 100px; height: 100px;" src="./assets/img/app-logo.jpeg" width="200">
+                            <p class="m-5">Have you ever wanted to manage and select your own cricket team and
+                                also win prizes at the same time? Do you think you can predict the game of cricket
+                                better than anyone
+                                else? If yes, then sign up now to play cricket fantasy at CricNix. Check out <a href="#"
+                                    class="font-bold font-weight">How to Play</a> and <a href="/faq"
+                                    class="font-weight font-bold">FAQ</a>
+                                pages for further details.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

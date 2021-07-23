@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/material.theme.css";
+.col-12{
+    padding: 0px !important ;
+}
+.col-sm-12 {
+    padding: 0px !important;
+}
+.col-md-6{
+    padding: 0px !important;
+}
+.col-lg-6{
+    padding: 0px !important;
+}
+.col-xl-6{
+    padding: 0px !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-step-header {
+  pointer-events: none !important;
+}

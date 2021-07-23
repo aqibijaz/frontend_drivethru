@@ -1,0 +1,79 @@
+.wrapper{
+    width: 100%;
+    height: 100%;
+    background: #2c3942;
+    padding: 20px;
+}
+.profile-img-wrapper{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 38px;
+}
+.set-img-btn{
+    position: absolute;
+    top: 8px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 50px;
+    background: none;
+    right: 30px;
+    background: #0097c9;
+}
+.set-img-btn>span{
+    color: white;
+    vertical-align: bottom;
+}
+.title{
+    text-align: center;
+    font-size: 2.0625em;
+    color: white;
+    margin-bottom: 20px;
+}
+.id-wrapper{
+    text-align: center;
+    font-size: .9375em;
+    color: #0094c9;
+    margin-bottom: 40px;
+}
+.quick-links{
+    background: #1c222e;
+    padding: 20px 30px 30px;
+}
+.quick-links> h3 {
+    font-size: 1.125em;
+    color: #0094c9;
+    line-height: 1.3333333333em;
+}
+ul{
+    list-style: none;
+    padding: 0px;
+}
+li{
+    margin-bottom: 20px;
+}
+.quick-links>ul>li a{
+    color: #fff;
+}
+
+.compeleteProfile {
+    padding: 0px 20px;
+    width: fit-content;
+    height: 40px;
+    background: #e03a3c;
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+    margin-left: 30px !important;
+}
+
+.mat-drawer-container{
+    min-height: 850px;
+}
+.mat-drawer{
+    width: 277px;
+}
+:host ::ng-deep .mat-drawer-inner-container{
+    padding-top: 5px;
+}

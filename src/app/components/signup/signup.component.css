@@ -1,0 +1,11 @@
+.create_btn {
+  font-size: 13px;
+  line-height: 17px;
+  width: 90%;
+}
+::placeholder {
+  color: #D0D0D0;
+}
+input{
+  padding: 0px 10px;
+}

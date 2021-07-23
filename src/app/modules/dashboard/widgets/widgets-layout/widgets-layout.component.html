@@ -1,0 +1,93 @@
+<div class="container">
+  <!-- <div class="my-row ">
+        <div class="box-height w-100">col-8</div>
+    </div> -->
+  <div class="my-row">
+    <div class="box-height">
+        <p class="h6 text-muted">Select University</p>
+
+      <ng-select
+        [items]="universities"
+        bindLabel="name"
+        appendTo="body"
+        [(ngModel)]="selectedUniversity"
+        (change)="getUniversity()"
+      >
+      </ng-select>
+    </div>
+    <div class="box-height">
+        <p class="h6 text-muted">Find University</p>
+        <form  class="form-row" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        
+            <input id="field" placeholder="Field Name"  class="form-control mb-2" type="text" formControlName="field">
+            <input id="department" placeholder="Department Name"  class="form-control mb-2" type="text" formControlName="department">
+            <input id="location" placeholder="Location (city)" class="form-control mb-2" type="text" formControlName="location">
+            <button type="submit"  class="btn btn-primary" [disabled]="!profileForm.valid">Find University</button>
+        
+        </form>
+    </div>
+    <div class="box-height">
+        <p class="h6 text-muted">Select Past Papers</p>
+
+        <ng-select [items]="pastPapers" bindLabel="name"  appendTo="body"
+            [(ngModel)]="selectedPastPaper" (change)="getPastPapers()">
+        </ng-select>
+    </div>
+    <div class="box-height">
+        <p class="h6 text-muted">Book Free Counseling Session</p>
+        <form class="form-row" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        
+            <input id="field" placeholder="Student Name" class="form-control mb-2" type="text" formControlName="field">
+            <textarea id="department" placeholder="Comment" class="form-control mb-2" type="text"
+                formControlName="department"> </textarea>
+            <input id="location" placeholder="Location (city)" class="form-control mb-2" type="date" formControlName="location">
+            
+            
+            
+            <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Send Quotes</button>
+        
+        </form>
+    </div>
+    
+  </div>
+
+  <!-- University Details -->
+  <div class="container row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h2 class="text-muted" style="margin: 0 auto;">University Details</h2>
+    </div>
+    <div class="col-md-4"></div>
+    
+
+  </div>
+  <div class="container-fluid">
+    
+    <div class="col-md-12">
+      <p class="h4">Punjab University</p>
+      <h5 class=" mb-2 text-muted">CS Department</h5>
+      <h5 class=" mb-2 text-muted">Lahore</h5>
+      <p class="">Some quick example text to bui
+        ld on the card title and make up the bulk of the card's content.
+        ld on the card title and make up the bulk of the card's content.
+        ld on the card title and make up the bulk of the card's content.
+        ld on the card title and make up the bulk of the card's content.
+        ld on the card title and make up the bulk of the card's content.
+        ld on the card title and make up the bulk of the card's content.
+      </p>
+      <a href="#" class="card-link">More Detai</a>
+    </div>
+    
+  </div>
+  <!-- 
+    <div class="card" style="">
+        <div class="card-body">
+          <h5 class="card-title">Punjab University</h5>
+          <h6 class="card-subtitle mb-2 text-muted">CS Department</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Lahore</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">More Detai</a>
+        </div>
+      </div>
+   -->
+</div>
