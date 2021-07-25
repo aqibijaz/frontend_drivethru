@@ -1,11 +1,102 @@
-.create_btn {
-  font-size: 13px;
-  line-height: 17px;
-  width: 90%;
+.login_form{
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 13px lightgrey;
+}
+.pageWrapper {
+  max-width: 1920px;
+  margin: auto;
+  padding: 70px;
+}
+.Login_left {
+    max-width: 600px;
+    height: 700px;
+    width: 100%;
+    background: #fff;
+    border-radius: 20px 0 0 20px;
+    text-align: center;
+    padding: 14% 17% 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.Login_left h1 {
+    color: #5b5b5b;
+    text-transform: uppercase;
+    font-size: 17px;
+}
+.Login_left input, .Login_left select {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #d0d0d0!important;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #495057;
+    font-family: Roboto-Light;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.forgot_password {
+    color: #a2a1a1;
+    font-size: 13px;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: initial;
+}
+.Login_left input[type=submit] {
+    background: #4c90f3;
+    color: #fff;
+    padding-left: 0!important;
+    font-family: Roboto-Medium;
+}
+.user {
+    background-size: 14px 17px;
+}
+input {
+    padding: 0 10px;
+}
+.Login_right {
+    background-image: url(/assets/img/bg.svg);
+    background-size: cover;
+    width: 100%;
+    border-radius: 0 20px 20px 0;
+    height: 700px;
+    position: relative;
+}
+.Login-right-text {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    font-family: Roboto-Light;
+    color: #fff;
+    font-size: 13px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.signin-text{
+    font-size: 18px;
+    color: #5b5b5b;
 }
 ::placeholder {
-  color: #D0D0D0;
-}
-input{
-  padding: 0px 10px;
+    color: #D0D0D0;
 }

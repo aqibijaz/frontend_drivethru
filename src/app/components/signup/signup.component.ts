@@ -9,20 +9,11 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   formGroup: FormGroup;
-  constructor(
-    formBuilder: FormBuilder,
-    private router: Router
-  ) {
-    this.formGroup = formBuilder.group({
-      email: '',
-      password: '',
-      mobile: '',
-    });
+  constructor(private router: Router) { }
+
+  ngOnInit() {
   }
-
-  ngOnInit(): void { }
-
-  async signup() {
-    
+  submitForm() {
+    this.router.navigateByUrl('/signin')
   }
 }
