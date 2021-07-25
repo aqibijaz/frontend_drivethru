@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
+  nationalSource = environment.videoUrl + 'national-universities.mp4';
+  interNationalSource = environment.videoUrl + 'inter-national-universities.mp4';
+
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

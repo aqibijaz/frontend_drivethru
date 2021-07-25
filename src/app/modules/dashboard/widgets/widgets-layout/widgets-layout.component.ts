@@ -17,30 +17,30 @@ export class WidgetsLayoutComponent implements OnInit {
   });
 
   universities = [
-    {id: 1, name: 'Punjab University'},
-    {id: 2, name: 'UCP'},
-    {id: 3, name: 'UMT'},
-    {id: 4, name: 'Lams'},
-    {id: 5, name: 'Nest'},
-    {id: 6, name: 'Fast'},
-    {id: 7, name: 'GIKI'},
+    { id: 1, name: 'Punjab University' },
+    { id: 2, name: 'UCP' },
+    { id: 3, name: 'UMT' },
+    { id: 4, name: 'Lams' },
+    { id: 5, name: 'Nest' },
+    { id: 6, name: 'Fast' },
+    { id: 7, name: 'GIKI' },
   ];
 
   pastPapers = [
-    {id: 1, name: 'PU'},
-    {id: 2, name: 'UCP'},
-    {id: 3, name: 'UMT'},
-    {id: 4, name: 'Lams'},
-    {id: 5, name: 'Nest'},
-    {id: 6, name: 'Fast'},
-    {id: 7, name: 'GIKI'},
+    { id: 1, name: 'PU' },
+    { id: 2, name: 'UCP' },
+    { id: 3, name: 'UMT' },
+    { id: 4, name: 'Lams' },
+    { id: 5, name: 'Nest' },
+    { id: 6, name: 'Fast' },
+    { id: 7, name: 'GIKI' },
   ];
 
-  getUniversity () {
+  getUniversity() {
     console.log(this.selectedUniversity);
   }
 
-  getPastPapers () {
+  getPastPapers() {
     console.log(this.selectedPastPaper);
   }
 
@@ -50,11 +50,7 @@ export class WidgetsLayoutComponent implements OnInit {
   }
 
   onSubmit() {
-  // TODO: Use EventEmitter with form value
-  console.warn(this.profileForm.value);
-}
-
-  
-
-
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileForm.value);
+  }
 }

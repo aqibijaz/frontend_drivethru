@@ -4,7 +4,6 @@ import { BodyComponent } from './layout/body/body.component';
 import { LayoutComponent } from './layout/layout.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { InformationformComponent } from './components/informationform/informationform.component';
 
 const routes: Routes = [
   {

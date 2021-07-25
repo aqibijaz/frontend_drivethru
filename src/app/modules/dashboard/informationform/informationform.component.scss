@@ -1,0 +1,9 @@
+.mat-drawer-container{
+    min-height: 850px;
+}
+.mat-drawer{
+    width: 277px;
+}
+:host ::ng-deep .mat-drawer-inner-container{
+    padding-top: 5px;
+}
