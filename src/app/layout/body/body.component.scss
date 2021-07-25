@@ -1,0 +1,20 @@
+.contact .php-email-form{
+    height: 100% !important;
+}
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.wrapper>div{
+    width: calc(50% - 5px);
+}
+.box{
+    width: 100%;
+    max-width: 200px;
+    height: 100px;
+    background: white;
+    border-radius: 5px;
+
+}
