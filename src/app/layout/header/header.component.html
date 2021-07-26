@@ -31,6 +31,9 @@
           <a class="nav-link scrollto" routerLink="auth/signup">Signup</a>
         </li>
         <li *ngIf="checkIsUserLogedIn()">
+          <a class="nav-link scrollto" routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li *ngIf="checkIsUserLogedIn()">
           <a class="nav-link scrollto" (click)="logoutUser()" style="cursor: pointer;">Logout</a>
         </li>
         <!-- <div style="display: flex;">
