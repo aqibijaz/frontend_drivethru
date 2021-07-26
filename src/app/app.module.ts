@@ -6,16 +6,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { BodyComponent } from './layout/body/body.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { SigninComponent } from './components/signin/signin.component';
-import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { HttpClientModule } from '@angular/common/http';
 import { DemoMaterialModule } from './material-module';
-
-
+import { AuthGuard } from './auth/guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -23,8 +20,6 @@ import { DemoMaterialModule } from './material-module';
     HeaderComponent,
     BodyComponent,
     FooterComponent,
-    SigninComponent,
-    SignupComponent,
     LayoutComponent,
   ],
   imports: [
@@ -36,9 +31,10 @@ import { DemoMaterialModule } from './material-module';
     DemoMaterialModule,
     NgSelectModule,
     HttpClientModule
-    
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
