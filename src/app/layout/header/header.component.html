@@ -33,8 +33,21 @@
         <li *ngIf="checkIsUserLogedIn()">
           <a class="nav-link scrollto" routerLink="/dashboard">Dashboard</a>
         </li>
+
         <li *ngIf="checkIsUserLogedIn()">
-          <a class="nav-link scrollto" (click)="logoutUser()" style="cursor: pointer;">Logout</a>
+
+          
+            
+            <div class="dropdown">
+              <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" data-toggle="dropdown"
+                id="dropdownMenuButton" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="40" alt="" loading="lazy" />
+              </a>
+              <!-- <button class="dropbtn">Dropdown</button> -->
+              <div class="dropdown-content">
+              <a class="nav-link scrollto" (click)="logoutUser()" style="cursor: pointer;">Logout</a>
+              </div>
+            </div>
         </li>
         <!-- <div style="display: flex;">
           <button routerLink="signin">Login</button>
