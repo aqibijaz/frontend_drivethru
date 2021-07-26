@@ -1,7 +1,24 @@
 <div class="container">
   <!-- <div class="my-row ">
         <div class="box-height w-100">col-8</div>
-    </div> -->
+  </div> -->
+
+  <!-- <div class="row">
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-primary">Select University</button>
+    </div>
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-primary">Find University</button>
+    </div>
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-primary">Find Past Papers</button>
+    </div>
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-primary">Counseling Session</button>
+    </div>
+
+  </div>
+
   <div class="my-row">
     <div class="box-height">
       <p class="h6 text-muted">Select University</p>
@@ -9,6 +26,7 @@
       <ng-select [items]="universities" bindLabel="name" appendTo="body" [(ngModel)]="selectedUniversity"
         (change)="getUniversity()">
       </ng-select>
+
     </div>
     <div class="box-height">
       <p class="h6 text-muted">Find University</p>
@@ -47,45 +65,36 @@
       </form>
     </div>
 
-  </div>
+  </div> -->
 
   <!-- University Details -->
-  <div class="container row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <h2 class="text-muted" style="margin: 0 auto;">University Details</h2>
-    </div>
-    <div class="col-md-4"></div>
-
-
-  </div>
   <div class="container-fluid">
 
     <div class="col-md-12">
-      <p class="h4">Punjab University</p>
-      <h5 class=" mb-2 text-muted">CS Department</h5>
-      <h5 class=" mb-2 text-muted">Lahore</h5>
-      <p class="">Some quick example text to bui
-        ld on the card title and make up the bulk of the card's content.
-        ld on the card title and make up the bulk of the card's content.
-        ld on the card title and make up the bulk of the card's content.
-        ld on the card title and make up the bulk of the card's content.
-        ld on the card title and make up the bulk of the card's content.
-        ld on the card title and make up the bulk of the card's content.
-      </p>
-      <a href="#" class="card-link">More Detai</a>
+      <p class="h4 text-muted">Select University</p>
+      <ng-select [items]="universities" bindLabel="name" appendTo="body" [(ngModel)]="selectedUniversity"
+        >
+      </ng-select>
+      <button  (click)="getUniversity()" type="button" class="btn btn-primary">Select University</button>
+
     </div>
 
   </div>
-  <!-- 
-    <div class="card" style="">
+  
+
+  
+    <div class="card" *ngFor="let uniRerod of selectedUniversityRecord;">
         <div class="card-body">
-          <h5 class="card-title">Punjab University</h5>
-          <h6 class="card-subtitle mb-2 text-muted">CS Department</h6>
-          <h6 class="card-subtitle mb-2 text-muted">Lahore</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">More Detai</a>
+          <!-- <h3 class="card-title">{{uniRerod.name}}</h3> -->
+          <h4 class="card-title mb-2">Department: {{uniRerod.department}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">City: {{uniRerod.city}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">Facutly: {{uniRerod.facutly}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">Eligibility: {{uniRerod.eligibility}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">Date: {{uniRerod.date}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">Test: {{uniRerod.test}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">Years Of Graduation: {{uniRerod.years_of_graduation}}</h4>
+          <!-- <a href="#" class="card-link">More Detai</a> -->
         </div>
       </div>
-   -->
+  
 </div>

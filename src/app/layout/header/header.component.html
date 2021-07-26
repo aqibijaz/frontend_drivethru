@@ -1,6 +1,14 @@
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container d-flex align-items-center">
-    <h1 class="logo me-auto">
+    
+      <div class="nav-logo me-auto">
+        <span data-aos="zoom-in"> <img routerLink="/" style="cursor: pointer;" src="assets/img/app-logo.png" height="100" width="100" alt="logo" />
+        </span>
+        <h1 data-aos="zoom-out" class="nav-heading">DRIVE<span class="nav-thru">THRU</span></h1>
+        <p data-aos="zoom-out" class="nav-sub">STEERING YOUR <span class="nav-thru">ACADEMIC AVENUE</span></p>
+      </div>
+    
+    <!-- <div class="logo me-auto">
       <a routerLink="/">
         <img style="width: 60px; max-height: 60px !important; height: 100px;" src="assets/img/site_icon.png" alt="">
       </a>
@@ -8,28 +16,22 @@
         <img style="margin-left: 20px; width: 400px; max-height: 40px !important; height: 50px;"
           src="assets/img/header_name.png" alt="">
       </a>
-    </h1>
+    </div>
+    <h1>DRIVE<span>THUR</span></h1> -->
     <!-- Uncomment below if you prefer to use an image logo -->
     <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
-    <nav id="navbar" class="navbar order-last order-lg-0">
+    <nav id="navbar" data-aos="zoom-out" class="navbar order-last  order-lg-0">
       <ul>
-        <!-- <li><a class="nav-link scrollto active" routerLink="/">Home</a></li>
-        <li><a class="nav-link scrollto" href="#about">About</a></li>
-        <li><a class="nav-link scrollto" href="#services">Services</a></li>
-        <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-        <li><a class="nav-link scrollto" href="#team">Team</a></li>
-        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        <li><a class="nav-link scrollto" href=""> </a></li> -->
 
         <li *ngIf="!checkIsUserLogedIn()">
-          <a routerLink="auth/signin">Login</a>
+          <a class="nav-link scrollto" routerLink="auth/signin">Login</a>
         </li>
         <li *ngIf="!checkIsUserLogedIn()">
-          <a routerLink="auth/signup">Signup</a>
+          <a class="nav-link scrollto" routerLink="auth/signup">Signup</a>
         </li>
         <li *ngIf="checkIsUserLogedIn()">
-          <a (click)="logoutUser()" style="cursor: pointer;">logOut</a>
+          <a class="nav-link scrollto" (click)="logoutUser()" style="cursor: pointer;">Logout</a>
         </li>
         <!-- <div style="display: flex;">
           <button routerLink="signin">Login</button>

@@ -7,18 +7,18 @@
                     <div class="Login_left pageWrapper">
                         <div>
                             <div class="signin-text mb-2">Sign Up To</div>
-                            <img style="width: 100px; height: 100px;" src="./assets/img/site_icon.png">
+                            <img style="width: 100px; height: 100px;" src="./assets/img/app-logo.png">
                             <form [formGroup]="singUpForm" novalidate="" action="/addtional-details"
                                 class="ng-valid ng-dirty ng-touched mt-3">
                                 <input type="text" formControlName="fullName" placeholder="Full Name"
-                                    class="user form-control ng-valid ng-dirty ng-touched">
+                                    class="user form-control ng-valid ng-dirty ng-touched mb-2">
                                 <input type="text" formControlName="email" placeholder="Email"
-                                    class="user form-control ng-valid ng-dirty ng-touched">
+                                    class="user form-control ng-valid ng-dirty ng-touched mb-2">
                                 <input type="text" formControlName="contact" placeholder="Contact (03034727173)"
-                                    class="user form-control ng-valid ng-dirty ng-touched">
+                                    class="user form-control ng-valid ng-dirty ng-touched mb-2">
                                 <div class="input-group1">
                                     <input type="password" formControlName="password" placeholder="Password"
-                                        class="Password mt-3 form-control">
+                                        class="Password form-control mb-2">
                                 </div>
                                 <!-- <a class="forgot_password">Forgot Your Password?</a> -->
                                 <input type="submit" value="SIGN UP" class="btn" (click)="submitForm()">

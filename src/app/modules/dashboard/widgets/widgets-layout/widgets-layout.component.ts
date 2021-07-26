@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UniversityService } from 'src/app/services/university.service';
+
 
 @Component({
   selector: 'app-widgets-layout',
@@ -9,6 +11,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class WidgetsLayoutComponent implements OnInit {
   selectedUniversity = {};
   selectedPastPaper = {};
+  universities:any = [];
 
   profileForm = new FormGroup({
     field: new FormControl(''),
@@ -16,15 +19,20 @@ export class WidgetsLayoutComponent implements OnInit {
     location: new FormControl(''),
   });
 
-  universities = [
-    { id: 1, name: 'Punjab University' },
-    { id: 2, name: 'UCP' },
-    { id: 3, name: 'UMT' },
-    { id: 4, name: 'Lams' },
-    { id: 5, name: 'Nest' },
-    { id: 6, name: 'Fast' },
-    { id: 7, name: 'GIKI' },
-  ];
+  constructor(
+    private universityService: UniversityService,
+  ) { }
+
+  ngOnInit(): void {
+    this.universityService.getUniDepCity()
+      .then((response) => {
+        this.universities = response.data.universities;
+      }).catch((excp) => {
+        console.log('excp', excp)
+      });
+  }
+
+  
 
   pastPapers = [
     { id: 1, name: 'PU' },
@@ -36,18 +44,27 @@ export class WidgetsLayoutComponent implements OnInit {
     { id: 7, name: 'GIKI' },
   ];
 
+  selectedUniversityRecord: any = []
+
   getUniversity() {
     console.log(this.selectedUniversity);
+    if (typeof this.selectedUniversity !== 'object') {
+
+      this.universityService.getUnvisity(this.selectedUniversity)
+        .then((response) => {
+          console.log('Iser uni => ', response)
+          this.selectedUniversityRecord = response.data;
+        }).catch((excp) => {
+          console.log('excp', excp)
+        });
+    }
   }
 
   getPastPapers() {
     console.log(this.selectedPastPaper);
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  
 
   onSubmit() {
     // TODO: Use EventEmitter with form value

@@ -3,5 +3,30 @@ button {
     background: none; border: none;
 }
 #header{
-    height: 80px !important;
+    height: 100px !important;
+    
+justify-content: space-between;
+}
+
+.nav-logo {
+display: flex;
+align-items: center;
+}
+
+.nav-heading {
+    color: #2b5792;
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 6%;
+}
+.nav-thru {
+    color: #f3712a;
+
+}
+
+.nav-sub {
+        position: absolute;
+    top: 70%;
+    left: 18.5%;
+    font-size: 11px !important;
 }
