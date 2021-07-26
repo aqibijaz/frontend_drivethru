@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HttpClientModule } from '@angular/common/http';
+import { DemoMaterialModule } from './material-module';
+
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgSelectModule
+    DemoMaterialModule,
+    NgSelectModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

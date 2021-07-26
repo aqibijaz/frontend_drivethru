@@ -7,20 +7,21 @@
                     <div class="Login_left pageWrapper">
                         <div>
                             <div class="signin-text mb-2">Sign In To</div>
-                            <img style="width: 100px; height: 100px;" src="./assets/img/site_icon.png">
-                            <form novalidate="" action="/addtional-details" class="ng-valid ng-dirty ng-touched mt-3">
-                                <input type="text" formcontrolname="username" placeholder="Email"
+                            <img style="width: 100px; height: 100px;" src="./assets/img/app-logo.png">
+                            <form [formGroup]="singIn" action="/addtional-details"
+                                class="ng-valid ng-dirty ng-touched mt-3">
+                                <input type="text" formControlName="username" placeholder="Email"
                                     class="user form-control ng-valid ng-dirty ng-touched">
                                 <div class="input-group1">
-                                    <input type="password" formcontrolname="password" placeholder="Password"
+                                    <input type="password" formControlName="password" placeholder="Password"
                                         class="Password mt-3 form-control">
                                 </div>
                                 <a class="forgot_password">Forgot Your Password?</a>
-                                <input type="submit" value="SIGN IN" class="btn" (click)="submitForm()">
+                                <input type="submit" class="btn" (click)="submitForm()">
                             </form>
                         </div>
                         <div>
-                            <p class="mt-30 account_p"> Don't have an account? <a routerLink="/signup"
+                            <p class="mt-30 account_p"> Don't have an account? <a routerLink="signup"
                                     class="theme_colr font_weight font-bold">Sign Up Now</a></p>
                         </div>
                     </div>

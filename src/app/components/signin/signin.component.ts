@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -8,12 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  formGroup: FormGroup;
-  constructor(private router: Router) { }
+  singIn = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
   }
   submitForm() {
-    this.router.navigateByUrl('dashboard')
+    console.log("Form", this.singIn.value)
+    this.auth.signIn(this.singIn.value).subscribe((res: any) => {
+      if (res && res.status == 200) {
+        // this.router.navigateByUrl('dashboard')
+      } else {
+        console.log("Some error")
+      }
+    });
+    // this.router.navigateByUrl('dashboard')
   }
 }
