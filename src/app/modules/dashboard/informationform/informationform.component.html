@@ -32,83 +32,85 @@
         <mat-horizontal-stepper #stepper>
           <mat-step>
             <ng-template matStepLabel>Personal Information</ng-template>
-            <div class="row justify-content-center">
-              <div class="col-6">
-                <h1>Personal Information</h1>
-                <div class="form-group">
-                  <label for="email">Name:</label>
-                  <input type="email" class="form-control" id="email" placeholder="Name" name="email" />
-                </div>
-                <div class="form-group">
-                  <label for="email">Father Name:</label>
-                  <input type="email" class="form-control" id="email" placeholder="Father Name" name="email" />
-                </div>
-                <div class="form-group">
-                  <label for="email">Mother Name:</label>
-                  <input type="email" class="form-control" id="email" placeholder="Mother Name" name="email" />
-                </div>
-                <div class="form-group">
-                  <label for="email">CNIC # / B-Form #:</label>
-                  <input type="email" class="form-control" id="email" placeholder="CNIC # / B-Form #" name="email" />
-                </div>
-                <div class="form-group">
-                  <label for="email">Date Of Birth (exactly as it appears on SSC/ O-Level
-                    Certificate):</label>
-                  <input type="email" class="form-control" id="email" placeholder="MM/DD/YYYY" name="email" />
-                </div>
-                <div class="form-group">
-                  <label for="sel1">Gender:</label>
-                  <select class="form-control" id="sel1">
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="email">Religion:</label>
-                  <input type="email" class="form-control" id="email" placeholder="Religion" name="email" />
-                </div>
-                <div class="form-group">
-                  <label for="email">Blood Group:</label>
-                  <input type="email" class="form-control" id="email" placeholder="Religion" name="email" />
-                </div>
-                <div class="form-group">
-                  <label for="pwd">Passport No (If available):</label>
-                  <input type="password" class="form-control" id="pwd" placeholder="Passport No" name="pwd" />
-                </div>
-                <div class="form-group">
-                  <label for="sel1">Martial Status:</label>
-                  <select class="form-control" id="sel1">
-                    <option>Single</option>
-                    <option>Married</option>
-                    <option>Divorced</option>
-                    <option>Widow</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="pwd">Name of Kin:</label>
-                  <input type="password" class="form-control" id="pwd" placeholder="Name of Kin" name="pwd" />
-                </div>
-                <div class="form-group">
-                  <label for="pwd">Next of Kin Relationship:</label>
-                  <input type="password" class="form-control" id="pwd" placeholder="Select Next of kin relation"
-                    name="pwd" />
-                </div>
-
-                <div class="row">
-                  <div class="col-6">
-                    <button type="submit" (click)="stepperNext(stepper)" class="btn btn-default submitbutton">
-                      Submit
-                    </button>
+            <form [formGroup]="personalInfoForm">
+              <div class="row justify-content-center">
+                <div class="col-6">
+                  <h1>Personal Information</h1>
+                  <div class="form-group">
+                    <label for="email">Name:</label>
+                    <input type="email" class="form-control" id="email" formControlName="name" placeholder="Name" name="email" />
                   </div>
-                  <div class="col-6">
-                    <button type="submit" (click)="stepperNext(stepper)" class="btn btn-default submitbutton">
-                      Next
-                    </button>
+                  <div class="form-group">
+                    <label for="email">Father Name:</label>
+                    <input type="email" class="form-control" id="email" formControlName="fatherName" placeholder="Father Name" name="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Mother Name:</label>
+                    <input type="email" class="form-control" id="email" formControlName="motherName" placeholder="Mother Name" name="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">CNIC # / B-Form #:</label>
+                    <input type="email" class="form-control" id="email" formControlName="cnic" placeholder="CNIC # / B-Form #" name="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Date Of Birth (exactly as it appears on SSC/ O-Level
+                      Certificate):</label>
+                    <input type="email" class="form-control" formControlName="dob" id="email" placeholder="MM/DD/YYYY" name="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="sel1">Gender:</label>
+                    <select class="form-control" id="sel1" formControlName="gender">
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Religion:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Religion" name="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Blood Group:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Religion" name="email" />
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Passport No (If available):</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Passport No" name="pwd" />
+                  </div>
+                  <div class="form-group">
+                    <label for="sel1">Martial Status:</label>
+                    <select class="form-control" id="sel1">
+                      <option>Single</option>
+                      <option>Married</option>
+                      <option>Divorced</option>
+                      <option>Widow</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Name of Kin:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Name of Kin" name="pwd" />
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">Next of Kin Relationship:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Select Next of kin relation"
+                      name="pwd" />
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">
+                      <button type="submit" (click)="stepperNext(stepper)" class="btn btn-default submitbutton">
+                        Submit
+                      </button>
+                    </div>
+                    <div class="col-6">
+                      <button type="submit" (click)="stepperNext(stepper)" class="btn btn-default submitbutton">
+                        Next
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
           </mat-step>
           <mat-step>
             <ng-template matStepLabel>Gardian Information</ng-template>

@@ -10,18 +10,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatRippleModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { InformationformComponent } from 'src/app/modules/dashboard/informationform/informationform.component';
+import { InformationFormComponent } from 'src/app/modules/dashboard/informationform/informationform.component';
 import { MatStepperModule } from '@angular/material/stepper';
+import { ProfileService } from './profile/profile.service';
 const routes: Routes = [
   { path: '', component: DashboardLayoutComponent },
-  { path: 'form', component: InformationformComponent },
+  { path: 'form', component: InformationFormComponent },
 ];
 @NgModule({
   declarations: [
     DashboardLayoutComponent,
     ProfileComponent,
     WidgetsLayoutComponent,
-    InformationformComponent,
+    InformationFormComponent,
   ],
   imports: [
     HttpClientModule,
@@ -34,6 +35,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     NgSelectModule,
     MatStepperModule,
+  ],
+  providers: [
+    ProfileService
   ]
 })
 export class DashboardModule { }

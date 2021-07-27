@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InformationformComponent } from './informationform.component';
+import { InformationFormComponent } from './informationform.component';
 
 describe('InformationformComponent', () => {
-  let component: InformationformComponent;
-  let fixture: ComponentFixture<InformationformComponent>;
+  let component: InformationFormComponent;
+  let fixture: ComponentFixture<InformationFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InformationformComponent ]
+      declarations: [ InformationFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InformationformComponent);
+    fixture = TestBed.createComponent(InformationFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
