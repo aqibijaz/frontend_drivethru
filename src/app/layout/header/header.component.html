@@ -1,66 +1,17 @@
-<header id="header" class="fixed-top d-flex align-items-center">
-  <div class="container d-flex align-items-center">
-    
+<header class="nav-section">
+  <mat-toolbar>
+    <span class="logo-spacing" data-aos="zoom-in">
       <div class="nav-logo me-auto">
-        <span data-aos="zoom-in"> <img routerLink="/" style="cursor: pointer;" src="assets/img/app-logo.png" height="100" width="100" alt="logo" />
+        <span data-aos="zoom-in"> <img routerLink="/" src="assets/img/nav-app-logo.png" height="60"
+            width="100" alt="logo" />
         </span>
-        <h1 data-aos="zoom-out" class="nav-heading">DRIVE<span class="nav-thru">THRU</span></h1>
+        <p data-aos="zoom-out" class="nav-heading">DRIVE<span class="nav-thru">THRU</span></p>
         <p data-aos="zoom-out" class="nav-sub">STEERING YOUR <span class="nav-thru">ACADEMIC AVENUE</span></p>
       </div>
+    </span>
+    <span class="example-spacer"></span>
+
+
     
-    <!-- <div class="logo me-auto">
-      <a routerLink="/">
-        <img style="width: 60px; max-height: 60px !important; height: 100px;" src="assets/img/site_icon.png" alt="">
-      </a>
-      <a class="ml-3" routerLink="/">
-        <img style="margin-left: 20px; width: 400px; max-height: 40px !important; height: 50px;"
-          src="assets/img/header_name.png" alt="">
-      </a>
-    </div>
-    <h1>DRIVE<span>THUR</span></h1> -->
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>-->
-
-    <nav id="navbar" data-aos="zoom-out" class="navbar order-last  order-lg-0">
-      <ul>
-
-        <li *ngIf="!checkIsUserLogedIn()">
-          <a class="nav-link scrollto" routerLink="auth/signin">Login</a>
-        </li>
-        <li *ngIf="!checkIsUserLogedIn()">
-          <a class="nav-link scrollto" routerLink="auth/signup">Signup</a>
-        </li>
-        <li *ngIf="checkIsUserLogedIn()">
-          <a class="nav-link scrollto" routerLink="/dashboard">Dashboard</a>
-        </li>
-
-        <li *ngIf="checkIsUserLogedIn()">
-
-          
-            
-            <div class="dropdown">
-              <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" data-toggle="dropdown"
-                id="dropdownMenuButton" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="40" alt="" loading="lazy" />
-              </a>
-              <!-- <button class="dropbtn">Dropdown</button> -->
-              <div class="dropdown-content">
-              <a class="nav-link scrollto" (click)="logoutUser()" style="cursor: pointer;">Logout</a>
-              </div>
-            </div>
-        </li>
-        <!-- <div style="display: flex;">
-          <button routerLink="signin">Login</button>
-          <p style="margin-top: 14px;">/</p>
-          <button routerLink="signup">Signup</button>
-        </div> -->
-        <!-- <li>
-          <a class="registationbuttons" routerLink="form">Registration Form</a>
-        </li> -->
-      </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav><!-- .navbar -->
-
-    <!-- <a href="#about" class="get-started-btn scrollto">Get Started</a> -->
-  </div>
+  </mat-toolbar>
 </header>

@@ -15,8 +15,8 @@ align-items: center;
 
 .nav-heading {
     color: #2b5792;
-    font-size: 40px;
-    font-weight: 500;
+    font-size: 35px;
+    font-weight: 600;
     margin-top: 6%;
 }
 .nav-thru {
@@ -27,8 +27,9 @@ align-items: center;
 .nav-sub {
         position: absolute;
     top: 70%;
-    left: 18.5%;
-    font-size: 11px !important;
+    left: 46.5%;
+    font-size: 9px !important;
+    
 }
 
 .dropbtn {
@@ -68,3 +69,18 @@ align-items: center;
 .dropdown:hover .dropdown-content {display: block; border-radius: 5px;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.logo-spacing {
+  margin-left: 3%;
+  cursor: pointer;
+  height: 60px;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+    height: 80px;
+}

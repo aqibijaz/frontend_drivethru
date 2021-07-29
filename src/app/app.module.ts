@@ -13,6 +13,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { HttpClientModule } from '@angular/common/http';
 import { DemoMaterialModule } from './material-module';
 import { AuthGuard } from './auth/guard/auth.guard';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthGuard } from './auth/guard/auth.guard';
     BrowserAnimationsModule,
     DemoMaterialModule,
     NgSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularSvgIconModule.forRoot()
   ],
   providers: [
     AuthGuard
