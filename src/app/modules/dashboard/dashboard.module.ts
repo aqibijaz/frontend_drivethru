@@ -13,6 +13,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { InformationFormComponent } from 'src/app/modules/dashboard/informationform/informationform.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { ProfileService } from './profile/profile.service';
+import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+
 const routes: Routes = [
   { path: '', component: DashboardLayoutComponent },
   { path: 'form', component: InformationFormComponent },
@@ -35,9 +37,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     NgSelectModule,
     MatStepperModule,
+    NgbModule,
+    NgbCarouselModule,
   ],
-  providers: [
-    ProfileService
-  ]
+  providers: [ProfileService],
 })
-export class DashboardModule { }
+export class DashboardModule {}

@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DemoMaterialModule } from './material-module';
 import { AuthGuard } from './auth/guard/auth.guard';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-
+import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +32,8 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     DemoMaterialModule,
     NgSelectModule,
     HttpClientModule,
+    NgbModule,
+    NgbCarouselModule,
     AngularSvgIconModule.forRoot()
   ],
   providers: [
