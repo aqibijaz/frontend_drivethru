@@ -84,3 +84,44 @@ align-items: center;
 .mat-toolbar-row, .mat-toolbar-single-row {
     height: 80px;
 }
+
+.nav-section a {
+  margin-right: 5px !important;
+}
+
+.head-contact {
+ width: 12%;
+ height: 50%;
+ color: #fac06c;
+ border: 1px solid #fac06c;
+ border-radius: 5px;
+ margin-right: 5px;
+ display: flex;
+  justify-content: space-between;
+  //  align-items: center;
+}
+
+.head-contact img {
+     height: 45%;
+    width: 10%;
+    font-size: 12px;
+    margin-top: 8%;
+    margin-left: 3%;
+}
+.head-contact p {
+      font-size: 13px;
+    margin-top: 3%;
+    margin-right: 3%;
+    align-items: center;
+} 
+
+.nav-section a{
+  font-size: 13px !important;
+  font-weight: 300;
+  color: #29538f;
+  margin: 0 5px;
+}
+
+.nav-btn{
+  color: white !important;
+}
