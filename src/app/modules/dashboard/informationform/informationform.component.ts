@@ -3,7 +3,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProfileService } from '../profile/profile.service';
 import { MatStepper } from '@angular/material/stepper';
-import { PersonalInfo } from '../profile/models/Models';
+import { GuardianInfo, PersonalInfo } from '../profile/models/Models';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-informationform',
@@ -37,7 +37,7 @@ export class InformationFormComponent implements OnInit {
 
   gardianInfoForm = new FormGroup({
     guardianName: new FormControl(this.profileService.guardianInfo.guardianName || '', [Validators.required]),
-    guardianRelation: new FormControl(this.profileService.guardianInfo.guardianRelation || '', [Validators.required]),
+    guardianRelation: new FormControl(this.profileService.guardianInfo.guardianRelation || 'Father', [Validators.required]),
     guardianMonIncome: new FormControl(this.profileService.guardianInfo.guardianMonIncome || '', [Validators.required]),
     guardianCellNo: new FormControl(this.profileService.guardianInfo.guardianCellNo || '', [Validators.required]),
     guardianOccupation: new FormControl(this.profileService.guardianInfo.guardianOccupation || '', [Validators.required]),
@@ -84,8 +84,8 @@ export class InformationFormComponent implements OnInit {
   fromPersonalToGuardian(): void {
     const personalInfo = this.personalInfoForm.getRawValue();
     this.profileService.personalInfo = new PersonalInfo(personalInfo);
-    console.log(this.profileService.personalInfo);
     this.stepperNext();
+    this.updateGuardianInfoFormValues();
     this.personalInfoForm.reset();
   }
 
@@ -109,11 +109,45 @@ export class InformationFormComponent implements OnInit {
 
   }
 
-  submitGardianInfo(): void { }
+  updateGuardianInfoFormValues(): void {
+
+    this.gardianInfoForm.patchValue({
+
+      guardianName: this.profileService.guardianInfo.guardianName,
+      guardianCNIC: this.profileService.guardianInfo.guardianCNIC,
+      guardianCellNo: this.profileService.guardianInfo.guardianCellNo,
+      guardianMonIncome: this.profileService.guardianInfo.guardianMonIncome,
+      guardianNTN: this.profileService.guardianInfo.guardianNTN,
+      guardianOccupation: this.profileService.guardianInfo.guardianOccupation,
+      guardianRelation: this.profileService.guardianInfo.guardianRelation
+    });
+  }
+
+  submitGardianInfo(): void {
+
+    if (this.gardianInfoForm.invalid) {
+      this.snackBar.open('Please fill all required fields', 'Ok', {
+        duration: 5000
+      });
+    }
+
+    const formData = this.gardianInfoForm.getRawValue();
+    this.profileService.guardianInfo = new GuardianInfo(formData);
+    this.stepperNext();
+    this.personalInfoForm.reset();
+  }
+
+  fromGuardianToAcdamic(): void {
+
+    const formData = this.gardianInfoForm.getRawValue();
+    this.profileService.guardianInfo = new GuardianInfo(formData);
+    this.stepperNext();
+    this.personalInfoForm.reset();
+
+  }
 
   submitAcadmic(): void { }
 
-  submitPrefAndCommenceApplying(): void {
-  }
+  submitPrefAndCommenceApplying(): void { }
 
 }
