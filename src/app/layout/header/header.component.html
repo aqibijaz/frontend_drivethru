@@ -1,6 +1,9 @@
+
+
+
 <header class="nav-section">
-  <mat-toolbar>
-    <span class="logo-spacing" data-aos="zoom-in">
+  <nav class="row justify-content-between text-center">
+    <span class="col-3" style="" data-aos="zoom-in">
       <div class="nav-logo me-auto">
         <span data-aos="zoom-in"> <img routerLink="/" src="assets/img/nav-app-logo.png" height="60"
             width="100" alt="logo" />
@@ -9,31 +12,60 @@
         <p data-aos="zoom-out" class="nav-sub">STEERING YOUR <span class="nav-thru">ACADEMIC AVENUE</span></p>
       </div>
     </span>
-    <span class="example-spacer"></span>
+    <!-- <span class="example-spacer"></span> -->
 
-    <a routerLink="/" class="nav-link">
-      HOW IT WORKS
-    </a>
-    <a routerLink="/" class="nav-link">
-      SUBJECT
-    </a>
-    <a routerLink="/" class="nav-link">
-      SERVICES
-    </a>
-    <a routerLink="/" class="nav-link">
-      CONTACT US
-    </a>
-    <a routerLink="/" class="nav-link">
-      INFORMATION
-    </a>
+    <div class="col-6 navbar mt-2 "data-aos="zoom-right">
+      <ul>
+        <li >
+          <a routerLink="/" class="nav-link">
+            HOW IT WORKS
+          </a>
+        </li>
+        <li >
+        <a routerLink="/" class="nav-link">
+          SUBJECT
+        </a>
+        </li>
+        <li >
+          <a routerLink="/" class="nav-link">
+            SERVICES
+          </a>
+        </li>
+        <li >
+          <a routerLink="/" class="nav-link">
+          CONTACT US
+          </a>
+        </li>
+        <li >
+          <a routerLink="/" class="nav-link">
+            INFORMATION
+          </a>
+        </li>
+        <!-- <li >
+          <a class="nav-link scrollto" routerLink="auth/signin">Login</a>
+        </li> -->
 
-    <div class="head-contact">
-      <img src="https://img.icons8.com/ios/50/fa314a/phone.png" />
-      <p>
-        +92 345 75 15152
-      </p>
+      </ul>
+
     </div>
-    <a routerLink="/auth/signin" mat-raised-button color="primary" class="nav-btn">SIGN UP</a>
-    <a  routerLink="/auth/signup" mat-raised-button color="primary" class="nav-btn">LOGIN</a>
-  </mat-toolbar>
+    <!-- 
+    
+    
+    <
+     -->
+
+    <div class="col-3 d-flex mt-2">
+      <div class="col-6 head-contact">
+        <img src="https://img.icons8.com/ios/50/fa314a/phone.png" />
+        <p>
+          +92 345 75 15152
+        </p>
+      </div>
+      <div class="col-6 mt-3">
+        <a routerLink="/auth/signin" class="btn btn-primary mr-2 text-white">SIGN UP</a>
+        <a routerLink="/auth/signup" class="btn btn-primary text-white">LOGIN</a>
+      </div>
+      
+    </div>
+  </nav>
 </header>

@@ -474,11 +474,13 @@ h2 {
 }
 
 .span1 {
+  margin-right: 10%;
   font-weight: 100;
   font-size: 26px;
   color: #f9b047;
 }
 .span2 {
+  margin-right: 10%;
   color: #8b8b8b;
   margin-left: 90px;
 }

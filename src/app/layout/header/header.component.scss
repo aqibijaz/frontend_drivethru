@@ -15,9 +15,9 @@ align-items: center;
 
 .nav-heading {
     color: #2b5792;
-    font-size: 35px;
+        font-size: 2.5vw;
     font-weight: 600;
-    margin-top: 6%;
+    margin-top: 5%;
 }
 .nav-thru {
     color: #f3712a;
@@ -90,34 +90,30 @@ align-items: center;
 }
 
 .head-contact {
- width: 12%;
- height: 50%;
+//  width: 12%;
  color: #fac06c;
  border: 1px solid #fac06c;
  border-radius: 5px;
  margin-right: 5px;
  display: flex;
   justify-content: space-between;
-  //  align-items: center;
+   align-items: center;
 }
 
-.head-contact img {
-     height: 45%;
-    width: 10%;
-    font-size: 12px;
-    margin-top: 8%;
-    margin-left: 3%;
+.head-contact > img {
+    width: 11%;
+    margin-top: -1%;
+    margin-left: 7%;
 }
 .head-contact p {
-      font-size: 13px;
-    margin-top: 3%;
-    margin-right: 3%;
-    align-items: center;
+    font-size: 1vw;
+    margin-top: 8%;
+    margin-right: 5%;
 } 
 
 .nav-section a{
-  font-size: 13px !important;
-  font-weight: 300;
+  font-size: 10px !important;
+  font-weight: 800;
   color: #29538f;
   margin: 0 5px;
 }
