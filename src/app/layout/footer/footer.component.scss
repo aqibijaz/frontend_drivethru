@@ -4,13 +4,19 @@
     gap: 5px;
 }
 .wrapper>div{
-    width: calc(50% - 5px);
+    width: calc(45% - 5px);
 }
 .box{
     width: 100%;
+    margin: 5px;
+    background-color: #a5b2cc !important;
     max-width: 200px;
     height: 100px;
     background: white;
-    border-radius: 5px;
+    border-radius: 25px;
 
+}
+
+p{
+    margin-bottom: 0px !important;
 }

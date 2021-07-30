@@ -1,45 +1,114 @@
-.contact .php-email-form{
-    height: 100% !important;
+.contact .php-email-form {
+  height: 100% !important;
 }
 
-.wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
-.wrapper>div{
-    width: calc(50% - 5px);
+.wrapper > div {
+  width: calc(50% - 5px);
 }
-.box{
-    width: 100%;
-    max-width: 200px;
-    height: 100px;
-    background: white;
-    border-radius: 5px;
-
+.box {
+  width: 100%;
+  max-width: 200px;
+  height: 100px;
+  background: white;
+  border-radius: 5px;
 }
 .nav-heading {
-    color: #2b5792 !important;
-    
+  color: #2b5792 !important;
 }
 .nav-thru {
-    color: #f3712a;
-
+  color: #f3712a;
 }
 
- #overlay {
-     
-      background-color: red;
-      top:-250px;
-      position: relative;
-    }
-    
-    #originalDiv {
-      width: 200px;
-      height: 200px;
-      position: absolute;
-      background-color: blue;
-      z-index: 1;
-      top:0px;
-      left:0px;
-    }
+.container1 {
+  height: 600px;
+  position: relative;
+  margin: 20px;
+}
+.box1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("../../../assets/img/Asset 7.png");
+  background-position: center;
+  background-size: cover;
+  margin-top: 6%;
+  left: 0;
+}
+.box3 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url("../../../assets/img/Asset 35.png");
+  background-position: center;
+  background-size: cover;
+  margin-top: 6%;
+  left: 0;
+}
+
+.box2 {
+  width: 50%;
+  height: 70%;
+  margin-left: 25% !important;
+  position: absolute;
+  background-image: url("../../../assets/img/LAPTOP.png");
+  background-position: center;
+  background-size: 100% 100%;
+  top: 0;
+  left: 0;
+}
+.stack-top {
+  z-index: 9;
+  margin: 20px; /* for demo purpose  */
+}
+
+.videoDiv {
+  padding-right: 5rem;
+  padding-left: 5rem;
+  height: 85%;
+}
+
+hr {
+  height: 8px;
+  margin-left: 13%;
+  margin-right: 13%;
+  margin: 4% 13% 2% 13%;
+  color: #d6cece;
+}
+
+.nationalBox{
+    border: 3px solid #dea756;
+    margin-left: 26%;
+    border-radius: 36px;
+}
+
+.internationalBox{
+    margin-left: 15%;
+    border-radius: 36px;
+    padding: 10px;
+}
+
+.internationalInner{
+    border: 2px solid #dea756;
+    color: white;
+    border-radius: 6px;
+}
+
+.nationalMainBox{
+    position: absolute; bottom: 0; width: 100%;
+    height: 13%;
+}
+
+.nationalMainBox1{
+    position: absolute; bottom: 0; width: 100%;
+    height: 20%;
+}
+
+input{
+    background: #e9ecef;
+    opacity: 1;
+}
