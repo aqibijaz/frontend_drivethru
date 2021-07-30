@@ -388,7 +388,7 @@ h6 {
 .innerText {
   font-weight: 700 !important;
   letter-spacing: 5px !important;
-  font-size: 90px !important;
+  font-size: 5vw !important;
   color: #f8cf31 !important;
 }
 
