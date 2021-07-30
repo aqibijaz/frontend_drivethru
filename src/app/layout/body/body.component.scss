@@ -26,3 +26,20 @@
     color: #f3712a;
 
 }
+
+ #overlay {
+     
+      background-color: red;
+      top:-250px;
+      position: relative;
+    }
+    
+    #originalDiv {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      background-color: blue;
+      z-index: 1;
+      top:0px;
+      left:0px;
+    }
