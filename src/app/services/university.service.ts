@@ -1,18 +1,22 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { SignUpModel } from '../auth/signup/signup.component';
 import { BehaviorSubject } from 'rxjs';
-
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UniversityService {
-  public counterySwitch: BehaviorSubject<string> = new BehaviorSubject<string>('international');
+  public counterySwitch: BehaviorSubject<string> = new BehaviorSubject<string>(
+    'international'
+  );
   public logout: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private cookieService: CookieService
+  ) {}
 
   get counterySwitchData(): String {
     return this.counterySwitch.value;
@@ -28,6 +32,20 @@ export class UniversityService {
     });
   }
 
+  postCounsellingSession(body): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: this.cookieService.get('token'),
+      });
+      this.httpClient
+        .post(environment.apiURL + 'contactMail/counselling_session', body)
+        .subscribe((response: any) => {
+          resolve(response);
+        }, reject);
+    });
+  }
+
   getUnvisity(uniName): Promise<any> {
     return new Promise((resolve, reject) => {
       this.httpClient
@@ -37,5 +55,18 @@ export class UniversityService {
         }, reject);
     });
   }
-}
 
+  getUser(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: this.cookieService.get('token'),
+      });
+      this.httpClient
+        .get(environment.apiURL + '/users/getLoginUser', { headers })
+        .subscribe((response: any) => {
+          resolve(response);
+        }, reject);
+    });
+  }
+}

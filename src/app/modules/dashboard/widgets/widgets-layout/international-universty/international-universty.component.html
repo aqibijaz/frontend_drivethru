@@ -218,9 +218,9 @@
               {{ universty }}
             </mat-option>
           </mat-select> -->
-          <input matInput type="text" formControlName="comment">
+          <input matInput type="text" formControlName="wantHelp">
           <mat-error
-            *ngIf="counsellingSession.get('comment').hasError('required')"
+            *ngIf="counsellingSession.get('wantHelp').hasError('required')"
           >
             Comment is requried
           </mat-error>

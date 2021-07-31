@@ -25,7 +25,7 @@
 
   <div class="row">
     <div class="col-4">
-      <button mat-flat-button color="primary" (click)="scroll('target1')">Select Country</button>
+      <button mat-flat-button color="primary" (click)="scroll('target1')">Select University</button>
     </div>
     <div class="col-4">
       <button mat-flat-button color="primary" (click)="scroll('target2')">
@@ -42,7 +42,7 @@
   <hr class="px-5" />
 
   <form [formGroup]="selectUniversty">
-    <button mat-flat-button color="primary" id="target1">Select Country</button>
+    <button mat-flat-button color="primary" id="target1">Select University</button>
     <div class="row my-3 px-3">
       <div class="col-12">
          <ng-select name="Universty Name"  formControlName="universty" [items]="universities" bindLabel="name" appendTo="body" 
@@ -156,10 +156,10 @@
               {{ universty.name }}
             </mat-option>
           </mat-select> -->
-          <input matInput type="text" formControlName="comment">
+          <input matInput type="text" formControlName="wantHelp">
 
           <mat-error
-            *ngIf="counsellingSession.get('comment').hasError('required')"
+            *ngIf="counsellingSession.get('wantHelp').hasError('required')"
           >
             Comment is requried
           </mat-error>
