@@ -17,6 +17,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     },
   ],
 })
+
 export class InformationFormComponent implements OnInit {
 
   @ViewChild('stepper') private stepper: MatStepper;
@@ -63,8 +64,8 @@ export class InformationFormComponent implements OnInit {
     yearOfPassing: new FormControl(this.profileService.academicInterLevelInfo.yearOfPassing || '', [Validators.required]),
     rollNo: new FormControl(this.profileService.academicInterLevelInfo.rollNo || '', [Validators.required]),
     registrationNo: new FormControl(this.profileService.academicInterLevelInfo.registrationNo || '', [Validators.required]),
-    marksObtained: new FormControl(this.profileService.academicInterLevelInfo.marksObtained || '', [Validators.required]),
-    totalMarks: new FormControl(this.profileService.academicInterLevelInfo.totalMarks || '', [Validators.required]),
+    marksObtained: new FormControl(this.profileService.academicInterLevelInfo.marksObtained || 0, [Validators.required]),
+    totalMarks: new FormControl(this.profileService.academicInterLevelInfo.totalMarks || 0, [Validators.required]),
   });
 
   constructor(

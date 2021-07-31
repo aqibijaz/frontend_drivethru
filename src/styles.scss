@@ -39,7 +39,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
    display: none;
 }
 
-
 .searchCounter {
     background-color: #f1a43a !important;
     color: white;
@@ -55,5 +54,9 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.input-error {
+    border-color: red !important;
 }
 
