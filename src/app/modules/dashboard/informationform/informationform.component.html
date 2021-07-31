@@ -16,8 +16,8 @@
     }
 
     .margintop {
-      margin-top: 100px;
-      margin-bottom: 100px;
+      margin-top: 60px;
+      margin-bottom: 60px;
     }
   </style>
 </head>
@@ -43,24 +43,24 @@
                 </div>
                 <div class="form-group">
                   <label>Father Name:</label>
-                  <input type="text" class="form-control" formControlName="fatherName" placeholder="Father Name" />
+                  <input type="text" class="form-control {{personalInfoForm.get('fatherName').invalid && personalInfoForm.get('fatherName').touched ? 'input-error' : ''}}" formControlName="fatherName" placeholder="Father Name" />
                 </div>
                 <div class="form-group">
                   <label>Mother Name:</label>
-                  <input type="text" class="form-control" formControlName="motherName" placeholder="Mother Name" />
+                  <input type="text" class="form-control {{personalInfoForm.get('motherName').invalid && personalInfoForm.get('motherName').touched ? 'input-error' : ''}}" formControlName="motherName" placeholder="Mother Name" />
                 </div>
                 <div class="form-group">
                   <label>CNIC # / B-Form #:</label>
-                  <input type="number" class="form-control" formControlName="cnic" placeholder="CNIC # / B-Form #" />
+                  <input type="number" class="form-control {{personalInfoForm.get('cnic').invalid && personalInfoForm.get('cnic').touched ? 'input-error' : ''}}" formControlName="cnic" placeholder="CNIC # / B-Form #" />
                 </div>
                 <div class="form-group">
                   <label>Date Of Birth (exactly as it appears on SSC/ O-Level
                     Certificate):</label>
-                  <input type="date" class="form-control" formControlName="dob" placeholder="MM/DD/YYYY" />
+                  <input type="date" class="form-control {{personalInfoForm.get('dob').invalid && personalInfoForm.get('dob').touched ? 'input-error' : ''}}" formControlName="dob" placeholder="MM/DD/YYYY" />
                 </div>
                 <div class="form-group">
                   <label>Gender:</label>
-                  <select class="form-control" formControlName="gender">
+                  <select class="form-control {{personalInfoForm.get('gender').invalid && personalInfoForm.get('gender').touched ? 'input-error' : ''}}" formControlName="gender">
                     <option>Male</option>
                     <option>Female</option>
                     <option>Other</option>
@@ -68,11 +68,11 @@
                 </div>
                 <div class="form-group">
                   <label>Religion:</label>
-                  <input type="text" formControlName="religion" class="form-control" placeholder="Religion" />
+                  <input type="text" formControlName="religion" class="form-control {{personalInfoForm.get('religion').invalid && personalInfoForm.get('religion').touched ? 'input-error' : ''}}" placeholder="Religion" />
                 </div>
-                <div class="form-group">
+                <div class="form-group ">
                   <label>Blood Group:</label>
-                  <select class="form-control" formControlName="bloodGroup">
+                  <select class="form-control {{personalInfoForm.get('bloodGroup').invalid && personalInfoForm.get('bloodGroup').touched ? 'input-error' : ''}}" formControlName="bloodGroup">
                     <option>A+</option>
                     <option>A-</option>
                     <option>B+</option>
@@ -86,11 +86,11 @@
                 </div>
                 <div class="form-group">
                   <label>Passport No (If available):</label>
-                  <input type="text" formControlName="passportNumber" class="form-control" placeholder="Passport No" />
+                  <input type="text" formControlName="passportNumber" class="form-control {{personalInfoForm.get('passportNumber').invalid && personalInfoForm.get('passportNumber').touched ? 'input-error' : ''}}" placeholder="Passport No" />
                 </div>
                 <div class="form-group">
                   <label>Martial Status:</label>
-                  <select class="form-control" formControlName="maritalStatus">
+                  <select class="form-control {{personalInfoForm.get('maritalStatus').invalid && personalInfoForm.get('maritalStatus').touched ? 'input-error' : ''}}" formControlName="maritalStatus">
                     <option>Single</option>
                     <option>Married</option>
                     <option>Divorced</option>
@@ -99,11 +99,11 @@
                 </div>
                 <div class="form-group">
                   <label>Name of Kin:</label>
-                  <input type="text" formControlName="nameOfNextOfKin" class="form-control" placeholder="Name of Kin" />
+                  <input type="text" formControlName="nameOfNextOfKin" class="form-control {{personalInfoForm.get('nameOfNextOfKin').invalid && personalInfoForm.get('nameOfNextOfKin').touched ? 'input-error' : ''}}" placeholder="Name of Kin" />
                 </div>
                 <div class="form-group">
                   <label>Next of Kin Relationship:</label>
-                  <input type="text" formControlName="nextOfKinRelation" class="form-control"
+                  <input type="text" formControlName="nextOfKinRelation" class="form-control {{personalInfoForm.get('nextOfKinRelation').invalid && personalInfoForm.get('nextOfKinRelation').touched ? 'input-error' : ''}}"
                     placeholder="Select Next of kin relation" />
                 </div>
 
@@ -132,11 +132,11 @@
                 <h2>Guardian Information</h2>
                 <div class="form-group">
                   <label>Guardian Name:</label>
-                  <input type="text" class="form-control" formControlName="guardianName" placeholder="Guardian Name" />
+                  <input type="text" class="form-control  {{gardianInfoForm.get('guardianName').invalid && gardianInfoForm.get('guardianName').touched ? 'input-error' : ''}}" formControlName="guardianName" placeholder="Guardian Name" />
                 </div>
                 <div class="form-group">
                   <label>Guardian Relationship:</label>
-                  <select class="form-control" formControlName="guardianRelation">
+                  <select class="form-control {{gardianInfoForm.get('guardianRelation').invalid && gardianInfoForm.get('guardianRelation').touched ? 'input-error' : ''}}" formControlName="guardianRelation">
                     <option>Father</option>
                     <option>Mother</option>
                     <option>Uncle</option>
@@ -145,27 +145,27 @@
                 </div>
                 <div class="form-group">
                   <label>Guardian Monthly Income:</label>
-                  <input type="number" class="form-control" min="0" placeholder="Guardian Monthly Income"
+                  <input type="number" class="form-control {{gardianInfoForm.get('guardianMonIncome').invalid && gardianInfoForm.get('guardianMonIncome').touched ? 'input-error' : ''}}" min="0" placeholder="Guardian Monthly Income"
                     formControlName="guardianMonIncome" />
                 </div>
                 <div class="form-group">
                   <label>Guardian Cell No:</label>
-                  <input type="text" class="form-control" formControlName="guardianCellNo"
+                  <input type="text" class="form-control {{gardianInfoForm.get('guardianCellNo').invalid && gardianInfoForm.get('guardianCellNo').touched ? 'input-error' : ''}}" formControlName="guardianCellNo"
                     placeholder="Guardian Cell No" />
                 </div>
                 <div class="form-group">
                   <label>Guardian Occupation:</label>
-                  <input type="text" class="form-control" formControlName="guardianOccupation"
+                  <input type="text" class="form-control {{gardianInfoForm.get('guardianOccupation').invalid && gardianInfoForm.get('guardianOccupation').touched ? 'input-error' : ''}}" formControlName="guardianOccupation"
                     placeholder="Guardian Occupation" />
                 </div>
                 <div class="form-group">
                   <label>Guardian CNIC:</label>
-                  <input type="number" class="form-control" formControlName="guardianCNIC"
+                  <input type="number" class="form-control {{gardianInfoForm.get('guardianCNIC').invalid && gardianInfoForm.get('guardianCNIC').touched ? 'input-error' : ''}}" formControlName="guardianCNIC"
                     placeholder="Guardian CNIC" />
                 </div>
                 <div class="form-group">
                   <label>Guardian NTN (If Available):</label>
-                  <input type="text" class="form-control" formControlName="guardianNTN" placeholder="Guardian NTN" />
+                  <input type="text" class="form-control {{gardianInfoForm.get('guardianNTN').invalid && gardianInfoForm.get('guardianNTN').touched ? 'input-error' : ''}}" formControlName="guardianNTN" placeholder="Guardian NTN" />
                 </div>
                 <div class="row">
                   <div class="col-4">
@@ -198,7 +198,7 @@
               <form [formGroup]="acadmicMetricInfoForm">
                 <div class="form-group">
                   <label>Exam Passed:</label>
-                  <select class="form-control" formControlName="examPassed">
+                  <select class="form-control {{acadmicMetricInfoForm.get('examPassed').invalid && acadmicMetricInfoForm.get('examPassed').touched ? 'input-error' : ''}}" formControlName="examPassed">
                     <option>Intermediate</option>
                     <option>O-Levels</option>
                     <option>Bachlors</option>
@@ -207,11 +207,11 @@
                 </div>
                 <div class="form-group">
                   <label>School/Institution:</label>
-                  <input type="text" class="form-control" placeholder="Alternative Cell No" formControlName="school" />
+                  <input type="text" class="form-control {{acadmicMetricInfoForm.get('school').invalid && acadmicMetricInfoForm.get('school').touched ? 'input-error' : ''}}" placeholder="Alternative Cell No" formControlName="school" />
                 </div>
                 <div class="form-group">
                   <label>Board:</label>
-                  <select class="form-control" formControlName="board">
+                  <select class="form-control {{acadmicMetricInfoForm.get('board').invalid && acadmicMetricInfoForm.get('board').touched ? 'input-error' : ''}}" formControlName="board">
                     <option>Punjab</option>
                     <option>Sindh</option>
                     <option>Sarhad</option>
@@ -220,26 +220,26 @@
                 </div>
                 <div class="form-group">
                   <label>Year of Passing:</label>
-                  <input type="text" class="form-control" placeholder="Year of Passing"
+                  <input type="text" class="form-control {{acadmicMetricInfoForm.get('yearOfPassing').invalid && acadmicMetricInfoForm.get('yearOfPassing').touched ? 'input-error' : ''}}" placeholder="Year of Passing"
                     formControlName="yearOfPassing" />
                 </div>
                 <div class="form-group">
                   <label>Serial Number:</label>
-                  <input type="text" class="form-control" formControlName="serialNo" placeholder="Serial Number" />
+                  <input type="text" class="form-control {{acadmicMetricInfoForm.get('serialNo').invalid && acadmicMetricInfoForm.get('serialNo').touched ? 'input-error' : ''}}" formControlName="serialNo" placeholder="Serial Number" />
                 </div>
                 <div class="form-group">
                   <label>Reference Number:</label>
-                  <input type="text" class="form-control" formControlName="referenceNo"
+                  <input type="text" class="form-control {{acadmicMetricInfoForm.get('referenceNo').invalid && acadmicMetricInfoForm.get('referenceNo').touched ? 'input-error' : ''}}" formControlName="referenceNo"
                     placeholder="Reference Number" />
                 </div>
                 <div class="form-group">
                   <label>Marks Obtained:</label>
-                  <input type="number" class="form-control" formControlName="marksObtained" placeholder="Marks Obtained"
+                  <input type="number" class="form-control {{acadmicMetricInfoForm.get('marksObtained').invalid && acadmicMetricInfoForm.get('marksObtained').touched ? 'input-error' : ''}}" formControlName="marksObtained" placeholder="Marks Obtained"
                     min="0" />
                 </div>
                 <div class="form-group">
                   <label>Total Marks:</label>
-                  <input type="number" min="0" class="form-control" formControlName="totalMarks"
+                  <input type="number" min="0" class="form-control {{acadmicMetricInfoForm.get('totalMarks').invalid && acadmicMetricInfoForm.get('totalMarks').touched ? 'input-error' : ''}}" formControlName="totalMarks"
                     placeholder="Total Marks" />
                 </div>
               </form>
@@ -249,11 +249,11 @@
 
                 <div class="form-group">
                   <label>School/Institution*:</label>
-                  <input type="text" class="form-control" formControlName="school" placeholder="School/Institution" />
+                  <input type="text" class="form-control {{acadmicInterInfoForm.get('school').invalid && acadmicInterInfoForm.get('school').touched ? 'input-error' : ''}}" formControlName="school" placeholder="School/Institution" />
                 </div>
                 <div class="form-group">
                   <label>Board/University*:</label>
-                  <select class="form-control" formControlName="board">
+                  <select class="form-control {{acadmicInterInfoForm.get('board').invalid && acadmicInterInfoForm.get('board').touched ? 'input-error' : ''}}" formControlName="board">
                     <option>Punjab</option>
                     <option>Sindh</option>
                     <option>Sarhad</option>
@@ -262,26 +262,26 @@
                 </div>
                 <div class="form-group">
                   <label>Year of Passing*:</label>
-                  <input type="text" class="form-control" formControlName="yearOfPassing"
+                  <input type="text" class="form-control {{acadmicInterInfoForm.get('yearOfPassing').invalid && acadmicInterInfoForm.get('yearOfPassing').touched ? 'input-error' : ''}}" formControlName="yearOfPassing"
                     placeholder="Year of Passing" />
                 </div>
                 <div class="form-group">
                   <label>Role No*:</label>
-                  <input type="text" class="form-control" formControlName="rollNo" placeholder="Role No" />
+                  <input type="text" class="form-control {{acadmicInterInfoForm.get('rollNo').invalid && acadmicInterInfoForm.get('rollNo').touched ? 'input-error' : ''}}" formControlName="rollNo" placeholder="Role No" />
                 </div>
                 <div class="form-group">
                   <label>Registration No*:</label>
-                  <input type="text" class="form-control" formControlName="registrationNo"
+                  <input type="text" class="form-control  {{acadmicInterInfoForm.get('registrationNo').invalid && acadmicInterInfoForm.get('registrationNo').touched ? 'input-error' : ''}}" formControlName="registrationNo"
                     placeholder="Registration No" />
                 </div>
                 <div class="form-group">
                   <label>Marks Obtained*:</label>
-                  <input type="number" class="form-control" formControlName="marksObtained" min="0"
+                  <input type="number" class="form-control {{acadmicInterInfoForm.get('marksObtained').invalid && acadmicInterInfoForm.get('marksObtained').touched ? 'input-error' : ''}}" formControlName="marksObtained" min="0"
                     placeholder="Marks Obtained" />
                 </div>
                 <div class="form-group">
                   <label>Total Marks*:</label>
-                  <input type="number" min="0" class="form-control" formControlName="totalMarks"
+                  <input type="number" min="0" class="form-control {{acadmicInterInfoForm.get('totalMarks').invalid && acadmicInterInfoForm.get('totalMarks').touched ? 'input-error' : ''}}" formControlName="totalMarks"
                     placeholder="Total Marks" />
                 </div>
                 <div class="row">
@@ -310,7 +310,7 @@
           <ng-template matStepLabel>Set Your Preference</ng-template>
 
           <div class="row justify-content-center">
-            <div class="col-12">
+            <div class="col-8">
 
               <form [formGroup]="universityForm">
 
@@ -353,7 +353,7 @@
 
           <div class="row justify-content-center">
 
-            <div class="col-12">
+            <div class="col-10">
 
               <ng-container *ngIf="selectedUniversities.length > 0">
                 <div class="card my-4" *ngFor="let name of selectedUniversities">
@@ -365,7 +365,14 @@
                 <div class="card my-4">
 
                   <div class="card-body">
-                    <h4 class="card-title mb-2">Net Amount &nbsp;{{selectedUniversities.length}}&nbsp;$</h4>
+                    <h4 class="card-title mb-2"><b>
+                      Net Amount &nbsp;
+                      <span>
+
+                        {{selectedUniversities.length}}&nbsp;$
+                      </span>
+                    </b>  
+                  </h4>
                   </div>
 
                 </div>

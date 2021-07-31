@@ -62,7 +62,7 @@ export class UniversityService {
         Authorization: this.cookieService.get('token'),
       });
       this.httpClient
-        .get(environment.apiURL + '/users/getLoginUser', { headers })
+        .get(environment.apiURL + 'users/getLoginUser', { headers })
         .subscribe((response: any) => {
           resolve(response);
         }, reject);
@@ -72,8 +72,8 @@ export class UniversityService {
   saveNationalPrefrence(preferedUnis: string[]): Promise<any> {
     return new Promise((resolve, reject) => {
       this.httpClient
-        .post(environment.apiURL + 'university/preference', {
-          preferedUnis
+        .post(environment.apiURL + 'contactMail/preference', {
+          univerityList: preferedUnis
         })
         .subscribe((response: any) => {
           resolve(response);
