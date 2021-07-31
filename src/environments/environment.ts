@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   videoUrl: './../assets/videos/',
   // apiURL: 'http://localhost:11000/api/v1/'
-  apiURL: 'http://54.221.68.189:11000/api/v1/'
+  apiURL: 'http://3.95.215.176:11000/api/v1/'
 };
 
 /*
