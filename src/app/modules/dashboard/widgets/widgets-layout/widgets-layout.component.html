@@ -68,33 +68,9 @@
   </div> -->
 
   <!-- University Details -->
-  <div class="container-fluid">
-
-    <div class="col-md-12">
-      <p class="h4 text-muted">Select University</p>
-      <ng-select [items]="universities" bindLabel="name" appendTo="body" [(ngModel)]="selectedUniversity"
-        >
-      </ng-select>
-      <button  (click)="getUniversity()" type="button" class="btn btn-primary">Select University</button>
-
-    </div>
-
-  </div>
   
 
-  
-    <div class="card" *ngFor="let uniRerod of selectedUniversityRecord;">
-        <div class="card-body">
-          <!-- <h3 class="card-title">{{uniRerod.name}}</h3> -->
-          <h4 class="card-title mb-2">Department: {{uniRerod.department}}</h4>
-          <h4 class="card-subtitle mb-2 text-muted">City: {{uniRerod.city}}</h4>
-          <h4 class="card-subtitle mb-2 text-muted">Facutly: {{uniRerod.facutly}}</h4>
-          <h4 class="card-subtitle mb-2 text-muted">Eligibility: {{uniRerod.eligibility}}</h4>
-          <h4 class="card-subtitle mb-2 text-muted">Date: {{uniRerod.date}}</h4>
-          <h4 class="card-subtitle mb-2 text-muted">Test: {{uniRerod.test}}</h4>
-          <h4 class="card-subtitle mb-2 text-muted">Years Of Graduation: {{uniRerod.years_of_graduation}}</h4>
-          <!-- <a href="#" class="card-link">More Detai</a> -->
-        </div>
-      </div>
+      <app-national-universty *ngIf="switch == 'national'"></app-national-universty>
+      <app-international-universty *ngIf="switch == 'international'"></app-international-universty>
   
 </div>

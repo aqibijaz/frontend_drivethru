@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/services/auth.service';
+import { UniversityService } from 'src/app/services/university.service';
 
 @Component({
   selector: 'app-signin',
@@ -22,6 +23,7 @@ export class SigninComponent implements OnInit {
     private authService: AuthService,
     private snackBar: MatSnackBar,
     private cookieService: CookieService,
+    private service: UniversityService,
   ) { }
 
   ngOnInit(): void { }
@@ -36,6 +38,7 @@ export class SigninComponent implements OnInit {
       then((response) => {
         this.cookieService.set('token', response.data.token);
         this.router.navigateByUrl('dashboard');
+        this.service.logout.next(false)
       }).catch((response) => {
         this.snackBar.open(response.error.message, 'Ok', {
           duration: 5000

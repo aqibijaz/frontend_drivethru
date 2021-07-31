@@ -14,7 +14,10 @@ import { InformationFormComponent } from 'src/app/modules/dashboard/informationf
 import { MatStepperModule } from '@angular/material/stepper';
 import { ProfileService } from './profile/profile.service';
 import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { NationalUniverstyComponent } from './widgets/widgets-layout/national-universty/national-universty.component';
+import { DemoMaterialModule } from '../../material-module';
+import { InternationalUniverstyComponent } from './widgets/widgets-layout/international-universty/international-universty.component';
+import { UniversityService } from 'src/app/services/university.service';
 const routes: Routes = [
   { path: '', component: DashboardLayoutComponent },
   { path: 'form', component: InformationFormComponent },
@@ -25,6 +28,8 @@ const routes: Routes = [
     ProfileComponent,
     WidgetsLayoutComponent,
     InformationFormComponent,
+    NationalUniverstyComponent,
+    InternationalUniverstyComponent,
   ],
   imports: [
     HttpClientModule,
@@ -39,7 +44,8 @@ const routes: Routes = [
     MatStepperModule,
     NgbModule,
     NgbCarouselModule,
+    DemoMaterialModule
   ],
-  providers: [ProfileService],
+  providers: [ProfileService ],
 })
 export class DashboardModule {}

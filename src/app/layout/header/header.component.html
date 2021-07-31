@@ -41,9 +41,12 @@
             INFORMATION
           </a>
         </li>
-        <!-- <li >
-          <a class="nav-link scrollto" routerLink="auth/signin">Login</a>
-        </li> -->
+        
+        <li >
+          <a routerLink="/" class="nav-link">
+            INFORMATION
+          </a>
+        </li>
 
       </ul>
 
@@ -55,15 +58,26 @@
      -->
 
     <div class="col-3 d-flex mt-2">
-      <div class="col-6 head-contact">
+      <div class="col-6 head-contact" *ngIf='!isToken'>
         <img src="https://img.icons8.com/ios/50/fa314a/phone.png" />
         <p>
           +92 345 75 15152
         </p>
       </div>
-      <div class="col-6 mt-3">
+
+      <div class="col-6 mt-3"  *ngIf='isToken'>
+         <button mat-flat-button color="primary" *ngIf="countryCheck" (click)="switchInternational()">Switch to National</button>
+         <button mat-flat-button color="primary" *ngIf="!countryCheck" (click)="switchNational()">Switch to International</button>
+      </div>
+      <div class="col-6 mt-3" *ngIf='!isToken'>
         <a routerLink="/auth/signup" class="btn btn-primary mr-2 text-white">SIGN UP</a>
         <a routerLink="/auth/signin" class="btn btn-primary text-white">LOGIN</a>
+      </div>
+      <div class="col-3 mt-3" *ngIf='isToken'>
+      </div>
+      <div class="col-3 mt-3" *ngIf='isToken'>
+                 <button mat-flat-button color="primary" (click)="logoutUser()">Logout</button>
+
       </div>
       
     </div>

@@ -1,0 +1,166 @@
+<div class="container-fluid">
+  <!-- <div class="col-md-12">
+      <p class="h4 text-muted">Select University</p>
+      <ng-select [items]="universities" bindLabel="name" appendTo="body" [(ngModel)]="selectedUniversity"
+        >
+      </ng-select>
+      <button  (click)="getUniversity()" type="button" class="btn btn-primary">Select University</button>
+
+    </div>
+
+  </div>
+  
+
+  
+    <div class="card" *ngFor="let uniRerod of selectedUniversityRecord;">
+        <div class="card-body">
+          <h4 class="card-title mb-2">Department: {{uniRerod.department}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">City: {{uniRerod.city}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">Facutly: {{uniRerod.facutly}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">Eligibility: {{uniRerod.eligibility}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">Date: {{uniRerod.date}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">Test: {{uniRerod.test}}</h4>
+          <h4 class="card-subtitle mb-2 text-muted">Years Of Graduation: {{uniRerod.years_of_graduation}}</h4>
+        </div> -->
+
+  <div class="row">
+    <div class="col-4">
+      <button mat-flat-button color="primary">Select Country</button>
+    </div>
+    <div class="col-4">
+      <button mat-flat-button color="primary">
+        Select You Field/Study/Interest
+      </button>
+    </div>
+    <div class="col-4 text-righ">
+      <button mat-flat-button color="primary">
+        Book a Free Counselling Session
+      </button>
+    </div>
+  </div>
+
+  <hr class="px-5" />
+
+  <form [formGroup]="selectUniversty">
+    <button mat-flat-button color="primary">Select Country</button>
+    <div class="row my-3 px-3">
+      <div class="col-12">
+        <mat-form-field
+          style="width: 100%"
+          class="example-form-field"
+          appearance="fill"
+        >
+          <mat-label>University Name</mat-label>
+          <input
+            matInput
+            type="text"
+            name="Universty Name"
+            formControlName="universty"
+          />
+          <button
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="selectUniverstySubmit()"
+          >
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+
+  <button mat-flat-button color="primary">
+    Select You Field/Study/Interest
+  </button>
+  <form [formGroup]="selectField">
+    <div class="row my-3 px-3">
+      <div class="col-12">
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Universty Name</mat-label>
+          <mat-select disableRipple formControlName="universty">
+            <mat-option
+              *ngFor="let universty of universities"
+              [value]="universty.id"
+            >
+              {{ universty.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-3 text-center">
+      <div class="col-12">
+        <button
+          mat-flat-button
+          class="searchCounter"
+          (click)="selectFieldSubmit()"
+        >
+          Find Your Countery <mat-icon>search</mat-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <button mat-flat-button color="primary">Counselling Session</button>
+  <form [formGroup]="counsellingSession">
+    <div class="row my-3 px-3">
+      <div class="col-6">
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Universty Name</mat-label>
+          <mat-select disableRipple formControlName="universty">
+            <mat-option
+              *ngFor="let universty of universities"
+              [value]="universty.id"
+            >
+              {{ universty.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-6"></div>
+    </div>
+
+    <div class="row my-3 px-3">
+      <div class="col-6">
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Department Name</mat-label>
+          <mat-select disableRipple formControlName="department">
+            <mat-option
+              *ngFor="let department of departments"
+              [value]="department.id"
+            >
+              {{ department.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Location (city)</mat-label>
+          <mat-select disableRipple formControlName="location">
+            <mat-option
+              *ngFor="let location of locations"
+              [value]="location.id"
+            >
+              {{ location.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-3 text-center">
+      <div class="col-12">
+        <button
+          mat-flat-button
+          class="searchCounter"
+          (click)="selectCounsellingSessionSubmit()"
+        >
+          Find Your Countery <mat-icon>search</mat-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
