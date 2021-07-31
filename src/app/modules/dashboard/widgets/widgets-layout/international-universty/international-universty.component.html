@@ -20,9 +20,9 @@
   <form [formGroup]="selectUniversty">
     <div class="row my-3 px-3">
       <div class="col-12">
-          <ng-select appearance='fill' placeholder="Universty Name"  formControlName="universty" [items]="universities"  bindLabel="name" appendTo="body" 
-        >
-      </ng-select>
+        <ng-select appearance='fill' placeholder="Universty Name" formControlName="universty" [items]="universities"
+          bindLabel="name" appendTo="body">
+        </ng-select>
         <!-- <mat-form-field
           style="width: 100%"
           class="example-form-field"
@@ -50,7 +50,7 @@
             University Name is requried
           </mat-error>
         </mat-form-field> -->
-        
+
       </div>
     </div>
   </form>
@@ -88,16 +88,11 @@
         <mat-form-field style="width: 100%" appearance="fill">
           <mat-label>Universty Name</mat-label>
           <mat-select disableRipple formControlName="universty">
-            <mat-option
-              *ngFor="let universty of universities"
-              [value]="universty"
-            >
+            <mat-option *ngFor="let universty of universities" [value]="universty">
               {{ universty }}
             </mat-option>
           </mat-select>
-          <mat-error
-            *ngIf="findUniversity.get('universty').hasError('required')"
-          >
+          <mat-error *ngIf="findUniversity.get('universty').hasError('required')">
             University Name is requried
           </mat-error>
         </mat-form-field>
@@ -110,16 +105,11 @@
         <mat-form-field style="width: 100%" appearance="fill">
           <mat-label>Department Name</mat-label>
           <mat-select disableRipple formControlName="department">
-            <mat-option
-              *ngFor="let department of departments"
-              [value]="department"
-            >
+            <mat-option *ngFor="let department of departments" [value]="department">
               {{ department }}
             </mat-option>
           </mat-select>
-          <mat-error
-            *ngIf="findUniversity.get('department').hasError('required')"
-          >
+          <mat-error *ngIf="findUniversity.get('department').hasError('required')">
             Department is requried
           </mat-error>
         </mat-form-field>
@@ -132,9 +122,7 @@
               {{ location }}
             </mat-option>
           </mat-select>
-          <mat-error
-            *ngIf="findUniversity.get('location').hasError('required')"
-          >
+          <mat-error *ngIf="findUniversity.get('location').hasError('required')">
             Location (city) is requried
           </mat-error>
         </mat-form-field>
@@ -143,11 +131,7 @@
 
     <div class="row mb-3 text-center">
       <div class="col-12">
-        <button
-          mat-flat-button
-          class="searchCounter"
-          (click)="findUniversitySubmit()"
-        >
+        <button mat-flat-button class="searchCounter" (click)="findUniversitySubmit()">
           Find Your Countery <mat-icon>search</mat-icon>
         </button>
       </div>
@@ -165,7 +149,7 @@
         <h4 class="card-subtitle mb-2 text-muted">
           Eligibility: {{ uniRerod.eligibility }}
         </h4>
-         <h4 class="card-subtitle mb-2 text-muted">
+        <h4 class="card-subtitle mb-2 text-muted">
           Low Fee: {{ uniRerod.fee.lowfee }}k
         </h4>
         <h4 class="card-subtitle mb-2 text-muted">
@@ -219,9 +203,7 @@
             </mat-option>
           </mat-select> -->
           <input matInput type="text" formControlName="comment">
-          <mat-error
-            *ngIf="counsellingSession.get('comment').hasError('required')"
-          >
+          <mat-error *ngIf="counsellingSession.get('comment').hasError('required')">
             Comment is requried
           </mat-error>
         </mat-form-field>
@@ -241,15 +223,9 @@
               {{ department }}
             </mat-option>
           </mat-select> -->
-          <textarea matInput
-            cdkAutosizeMinRows="1"
-            cdkAutosizeMaxRows="5"
-            formControlName="reason"
-            >
+          <textarea matInput cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" formControlName="reason">
         </textarea>
-          <mat-error
-            *ngIf="counsellingSession.get('reason').hasError('required')"
-          >
+          <mat-error *ngIf="counsellingSession.get('reason').hasError('required')">
             Reason is requried
           </mat-error>
         </mat-form-field>
@@ -273,12 +249,7 @@
 
     <div class="row mb-3 text-center">
       <div class="col-12">
-        <button
-          mat-flat-button
-          type="button"
-          class="searchCounter"
-          (click)="selectCounsellingSessionSubmit()"
-        >
+        <button mat-flat-button type="button" class="searchCounter" (click)="selectCounsellingSessionSubmit()">
           Submit
         </button>
       </div>

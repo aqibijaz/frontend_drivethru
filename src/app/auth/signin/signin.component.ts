@@ -36,13 +36,12 @@ export class SigninComponent implements OnInit {
 
     this.authService.loginUser(this.singInForm.get('username').value, this.singInForm.get('password').value).
       then((response) => {
+        this.cookieService.deleteAll();
         this.cookieService.set('token', response.data.token);
         this.router.navigateByUrl('dashboard');
-        this.service.logout.next(false)
+        this.service.logout.next(false);
       }).catch((response) => {
-        this.snackBar.open(response.error.message, 'Ok', {
-          duration: 5000
-        });
+        this.snackBar.open(response.error.message, 'Ok', { duration: 5000 });
       });
   }
 }

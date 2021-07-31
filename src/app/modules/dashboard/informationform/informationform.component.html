@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-group">
                   <label>CNIC # / B-Form #:</label>
-                  <input type="text" class="form-control" formControlName="cnic" placeholder="CNIC # / B-Form #" />
+                  <input type="number" class="form-control" formControlName="cnic" placeholder="CNIC # / B-Form #" />
                 </div>
                 <div class="form-group">
                   <label>Date Of Birth (exactly as it appears on SSC/ O-Level
@@ -158,7 +158,8 @@
                 </div>
                 <div class="form-group">
                   <label>Guardian CNIC:</label>
-                  <input type="text" class="form-control" formControlName="guardianCNIC" placeholder="Guardian CNIC" />
+                  <input type="number" class="form-control" formControlName="guardianCNIC"
+                    placeholder="Guardian CNIC" />
                 </div>
                 <div class="form-group">
                   <label>Guardian NTN (If Available):</label>
@@ -192,100 +193,114 @@
             <div class="col-6">
               <h1>Academic Information</h1>
               <h2>Matriculation/SSC/O-Level or Equivalent</h2>
-              <div class="form-group">
-                <label>Exam Passed:</label>
-                <select class="form-control">
-                  <option>Intermediate</option>
-                  <option>O-Levels</option>
-                  <option>Bachlors</option>
-                  <option>Masters</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>School/Institution:</label>
-                <input type="text" class="form-control" placeholder="Alternative Cell No" />
-              </div>
-              <div class="form-group">
-                <label>Board:</label>
-                <select class="form-control">
-                  <option>Punjab</option>
-                  <option>Sindh</option>
-                  <option>Sarhad</option>
-                  <option>Balochistan</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Year of Passing:</label>
-                <input type="text" class="form-control" placeholder="Year of Passing" />
-              </div>
-              <div class="form-group">
-                <label>Serial Number:</label>
-                <input type="text" class="form-control" placeholder="Serial Number" />
-              </div>
-              <div class="form-group">
-                <label>Reference Number:</label>
-                <input type="text" class="form-control" placeholder="Reference Number" />
-              </div>
-              <div class="form-group">
-                <label>Marks Obtained:</label>
-                <input type="text" class="form-control" placeholder="Marks Obtained" />
-              </div>
-              <div class="form-group">
-                <label>Total Marks:</label>
-                <input type="text" class="form-control" placeholder="Total Marks" />
-              </div>
+              <form [formGroup]="acadmicMetricInfoForm">
+                <div class="form-group">
+                  <label>Exam Passed:</label>
+                  <select class="form-control" formControlName="examPassed">
+                    <option>Intermediate</option>
+                    <option>O-Levels</option>
+                    <option>Bachlors</option>
+                    <option>Masters</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>School/Institution:</label>
+                  <input type="text" class="form-control" placeholder="Alternative Cell No" formControlName="school" />
+                </div>
+                <div class="form-group">
+                  <label>Board:</label>
+                  <select class="form-control" formControlName="board">
+                    <option>Punjab</option>
+                    <option>Sindh</option>
+                    <option>Sarhad</option>
+                    <option>Balochistan</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Year of Passing:</label>
+                  <input type="text" class="form-control" placeholder="Year of Passing"
+                    formControlName="yearOfPassing" />
+                </div>
+                <div class="form-group">
+                  <label>Serial Number:</label>
+                  <input type="text" class="form-control" formControlName="serialNo" placeholder="Serial Number" />
+                </div>
+                <div class="form-group">
+                  <label>Reference Number:</label>
+                  <input type="text" class="form-control" formControlName="referenceNo"
+                    placeholder="Reference Number" />
+                </div>
+                <div class="form-group">
+                  <label>Marks Obtained:</label>
+                  <input type="number" class="form-control" formControlName="marksObtained" placeholder="Marks Obtained"
+                    min="0" />
+                </div>
+                <div class="form-group">
+                  <label>Total Marks:</label>
+                  <input type="number" min="0" class="form-control" formControlName="totalMarks"
+                    placeholder="Total Marks" />
+                </div>
+              </form>
 
-              <h2>F.Sc Pre-Engineering(Maths, Phys, Chem) or Equivalent</h2>
-              <div class="form-group">
-                <label>School/Institution*:</label>
-                <input type="text" class="form-control" placeholder="School/Institution" />
-              </div>
-              <div class="form-group">
-                <label>Board/University*:</label>
-                <select class="form-control">
-                  <option>Punjab</option>
-                  <option>Sindh</option>
-                  <option>Sarhad</option>
-                  <option>Balochistan</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Year of Passing*:</label>
-                <input type="text" class="form-control" placeholder="Year of Passing" />
-              </div>
-              <div class="form-group">
-                <label>Role No*:</label>
-                <input type="text" class="form-control" placeholder="Role No" />
-              </div>
-              <div class="form-group">
-                <label>Registration No*:</label>
-                <input type="text" class="form-control" placeholder="Registration No" />
-              </div>
-              <div class="form-group">
-                <label>Marks Obtained*:</label>
-                <input type="text" class="form-control" placeholder="Marks Obtained" />
-              </div>
-              <div class="form-group">
-                <label>Total Marks*:</label>
-                <input type="text" class="form-control" placeholder="Total Marks" />
-              </div>
-              <div class="row">
-                <div class="col-4">
-                  <button type="submit" (click)="stepperPrevious()" class="btn btn-default submitbutton">
-                    Back
-                  </button>
+              <form [formGroup]="acadmicInterInfoForm">
+                <h2>F.Sc Pre-Engineering(Maths, Phys, Chem) or Equivalent</h2>
+
+                <div class="form-group">
+                  <label>School/Institution*:</label>
+                  <input type="text" class="form-control" formControlName="school" placeholder="School/Institution" />
                 </div>
-                <div class="col-4">
-                  <button type="submit" (click)="stepperNext()" class="btn btn-default submitbutton">
-                    Submit
-                  </button>
+                <div class="form-group">
+                  <label>Board/University*:</label>
+                  <select class="form-control" formControlName="board">
+                    <option>Punjab</option>
+                    <option>Sindh</option>
+                    <option>Sarhad</option>
+                    <option>Balochistan</option>
+                  </select>
                 </div>
-                <div class="col-4">
-                  <button type="submit" (click)="stepperNext()" class="btn btn-default submitbutton">
-                    Next
-                  </button>
+                <div class="form-group">
+                  <label>Year of Passing*:</label>
+                  <input type="text" class="form-control" formControlName="yearOfPassing"
+                    placeholder="Year of Passing" />
                 </div>
-              </div>
+                <div class="form-group">
+                  <label>Role No*:</label>
+                  <input type="text" class="form-control" formControlName="rollNo" placeholder="Role No" />
+                </div>
+                <div class="form-group">
+                  <label>Registration No*:</label>
+                  <input type="text" class="form-control" formControlName="registrationNo"
+                    placeholder="Registration No" />
+                </div>
+                <div class="form-group">
+                  <label>Marks Obtained*:</label>
+                  <input type="number" class="form-control" formControlName="marksObtained" min="0"
+                    placeholder="Marks Obtained" />
+                </div>
+                <div class="form-group">
+                  <label>Total Marks*:</label>
+                  <input type="number" min="0" class="form-control" formControlName="totalMarks"
+                    placeholder="Total Marks" />
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <button type="submit" (click)="stepperPrevious()" class="btn btn-default submitbutton">
+                      Back
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button type="submit" (click)="saveAcadmicInfo()" class="btn btn-default submitbutton"
+                      [disabled]="acadmicMetricInfoForm.invalid || acadmicInterInfoForm.invalid">
+                      Submit
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button type="submit" (click)="stepperNext()" class="btn btn-default submitbutton">
+                      Next
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </mat-step>
@@ -331,212 +346,6 @@
         </mat-step>
       </mat-horizontal-stepper>
     </div>
-
-    <!-- <div class="container margintop">
-        <form action="/action_page.php">
-          <h2>Initial Signup Form</h2>
-          <div class="form-group">
-            <label >Full Name:</label>
-            <input
-              type="email"
-              class="form-control"
-              
-              placeholder="Full Name"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >Father Name:</label>
-            <input
-              type="email"
-              class="form-control"
-              
-              placeholder="Father Name"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >Email:</label>
-            <input
-              type="email"
-              class="form-control"
-              
-              placeholder="Enter email"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >Confirm Email:</label>
-            <input
-              type="email"
-              class="form-control"
-              
-              placeholder="Confirm email"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >Cell No:</label>
-            <input
-              type="email"
-              class="form-control"
-              
-              placeholder="Cell No"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >Alternative Cell No:</label>
-            <input
-              type="email"
-              class="form-control"
-              
-              placeholder="Alternative Cell No"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >Password:</label>
-            <input
-              type="text"
-              class="form-control"
-              
-              placeholder="Enter password"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >Confirm Password:</label>
-            <input
-              type="text"
-              class="form-control"
-              
-              placeholder="Confirm Password"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >Nationality:</label>
-            <select class="form-control" >
-              <option>Pakistan</option>
-              <option>Australia</option>
-              <option>Canada</option>
-              <option>England</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label >Qualification:</label>
-            <select class="form-control" >
-              <option>Intermediate</option>
-              <option>O-Levels</option>
-              <option>Bachlors</option>
-              <option>Masters</option>
-            </select>
-          </div>
-          <h1>Profile</h1>
-          <h2>Personal Information</h2>          
-
-          <h2>Contact/Demographic Information</h2>
-          <div class="form-group">
-            <label >Applicant Cell No:</label>
-            <input
-              type="text"
-              class="form-control"
-              
-              placeholder="Applicant Cell No"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >Alternative Cell No:</label>
-            <input
-              type="text"
-              class="form-control"
-              
-              placeholder="Alternative Cell No"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >Landline Number:</label>
-            <input
-              type="text"
-              class="form-control"
-              
-              placeholder="Landline Number"
-              
-            />
-          </div>
-          <div class="form-group">
-            <label >City of Resident:</label>
-            <select class="form-control" >
-              <option>Lahore</option>
-              <option>Islamabad</option>
-              <option>Multan</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label >Domicile:</label>
-            <select class="form-control" >
-              <option>Punjab</option>
-              <option>Sindh</option>
-              <option>Sarhad</option>
-              <option>Balochistan</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label >Nationality:</label>
-            <select class="form-control" >
-              <option>Pakistan</option>
-              <option>Australia</option>
-              <option>England</option>
-              <option>Canada</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Postal/Present Address*:</label>
-            <textarea class="form-control" rows="5"></textarea>
-          </div>
-          <div class="form-group">
-            <label>Permanent Address*:</label>
-            <textarea class="form-control" rows="5"></textarea>
-          </div>
-          <div class="form-group">
-            <label >Permanent District:</label>
-            <select class="form-control" >
-              <option>Lahore</option>
-              <option>Islamabad</option>
-              <option>Multan</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label >Permanent Tehsil:</label>
-            <select class="form-control" >
-              <option>Lahore</option>
-              <option>Islamabad</option>
-              <option>Multan</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label >Domicile District:</label>
-            <select class="form-control" >
-              <option>Lahore</option>
-              <option>Islamabad</option>
-              <option>Multan</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-
-         
-          <button type="submit" class="btn btn-default submitbutton">
-            Submit
-          </button>
-        </form>
-      </div>  -->
   </mat-drawer-container>
 </body>
 

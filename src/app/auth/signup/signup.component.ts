@@ -43,16 +43,12 @@ export class SignupComponent implements OnInit {
     this.signUpModel.password = formData.password;
     this.authService.signUpUser(this.signUpModel)
       .then((response) => {
-        this.snackBar.open('SignUp success! Please signin to your account.', 'Ok', {
-          duration: 5000
-        });
+        this.snackBar.open('SignUp success! Please signin to your account.', 'Ok', { duration: 5000 });
 
         this.router.navigateByUrl('/auth/signin');
 
       }).catch((excp) => {
-        this.snackBar.open('An error occured. Please try again', 'Ok', {
-          duration: 5000
-        });
+        this.snackBar.open('An error occured. Please try again', 'Ok', { duration: 5000 });
       });
   }
 }

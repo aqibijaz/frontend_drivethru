@@ -45,9 +45,9 @@
     <button mat-flat-button color="primary" id="target1">Select Country</button>
     <div class="row my-3 px-3">
       <div class="col-12">
-         <ng-select name="Universty Name"  formControlName="universty" [items]="universities" bindLabel="name" appendTo="body" 
-        >
-      </ng-select>
+        <ng-select name="Universty Name" formControlName="universty" [items]="universities" bindLabel="name"
+          appendTo="body">
+        </ng-select>
       </div>
     </div>
   </form>
@@ -63,7 +63,7 @@
         <h4 class="card-subtitle mb-2 text-muted">
           Eligibility: {{ uniRerod.eligibility }}
         </h4>
-         <h4 class="card-subtitle mb-2 text-muted">
+        <h4 class="card-subtitle mb-2 text-muted">
           Low Fee: {{ uniRerod.fee.lowfee }}k
         </h4>
         <h4 class="card-subtitle mb-2 text-muted">
@@ -88,10 +88,7 @@
         <mat-form-field style="width: 100%" appearance="fill">
           <mat-label>Universty Name</mat-label>
           <mat-select disableRipple formControlName="universty">
-            <mat-option
-              *ngFor="let universty of universities"
-              [value]="universty.id"
-            >
+            <mat-option *ngFor="let universty of universities" [value]="universty.id">
               {{ universty.name }}
             </mat-option>
           </mat-select>
@@ -104,11 +101,7 @@
 
     <div class="row mb-3 text-center">
       <div class="col-12">
-        <button
-          mat-flat-button
-          class="searchCounter"
-          (click)="selectFieldSubmit()"
-        >
+        <button mat-flat-button class="searchCounter" (click)="selectFieldSubmit()">
           Find Your Countery <mat-icon>search</mat-icon>
         </button>
       </div>
@@ -126,7 +119,7 @@
         <h4 class="card-subtitle mb-2 text-muted">
           Eligibility: {{ uniRerod.eligibility }}
         </h4>
-         <h4 class="card-subtitle mb-2 text-muted">
+        <h4 class="card-subtitle mb-2 text-muted">
           Low Fee: {{ uniRerod.fee.lowfee }}k
         </h4>
         <h4 class="card-subtitle mb-2 text-muted">
@@ -158,9 +151,7 @@
           </mat-select> -->
           <input matInput type="text" formControlName="comment">
 
-          <mat-error
-            *ngIf="counsellingSession.get('comment').hasError('required')"
-          >
+          <mat-error *ngIf="counsellingSession.get('comment').hasError('required')">
             Comment is requried
           </mat-error>
         </mat-form-field>
@@ -180,15 +171,9 @@
               {{ department.name }}
             </mat-option>
           </mat-select> -->
-           <textarea matInput
-            cdkAutosizeMinRows="1"
-            cdkAutosizeMaxRows="5"
-            formControlName="reason"
-            >
+          <textarea matInput cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" formControlName="reason">
         </textarea>
-          <mat-error
-            *ngIf="counsellingSession.get('reason').hasError('required')"
-          >
+          <mat-error *ngIf="counsellingSession.get('reason').hasError('required')">
             Reason is requried
           </mat-error>
         </mat-form-field>
@@ -215,11 +200,7 @@
 
     <div class="row mb-3 text-center">
       <div class="col-12">
-        <button
-          mat-flat-button
-          class="searchCounter"
-          (click)="selectCounsellingSessionSubmit()"
-        >
+        <button mat-flat-button class="searchCounter" (click)="selectCounsellingSessionSubmit()">
           Submit
         </button>
       </div>

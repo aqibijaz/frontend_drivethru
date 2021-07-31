@@ -52,3 +52,45 @@ export class PersonalInfo {
         this.nextOfKinRelation = data.nextOfKinRelation;
     }
 }
+
+export class AcademicMetricLevelInfo {
+    examPassed: string;
+    school: string;
+    board: string;
+    yearOfPassing: string;
+    serialNo: string;
+    referenceNo: string;
+    marksObtained: string;
+    totalMarks: string;
+    constructor(data?) {
+        data = data || {};
+        this.examPassed = data.examPassed;
+        this.school = data.school;
+        this.board = data.board;
+        this.yearOfPassing = data.yearOfPassing;
+        this.serialNo = data.serialNo;
+        this.referenceNo = data.referenceNo;
+        this.marksObtained = data.marksObtained;
+        this.totalMarks = data.totalMarks;
+    }
+}
+
+export class AcademicInterLevelInfo {
+    school: string;
+    board: string;
+    yearOfPassing: string;
+    rollNo: string;
+    registrationNo: string;
+    marksObtained: string;
+    totalMarks: string;
+    constructor(data?) {
+        data = data || {};
+        this.school = data.school;
+        this.board = data.board;
+        this.yearOfPassing = data.yearOfPassing;
+        this.rollNo = data.rollNo;
+        this.registrationNo = data.registrationNo;
+        this.marksObtained = data.marksObtained;
+        this.totalMarks = data.totalMarks;
+    }
+}

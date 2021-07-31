@@ -1,10 +1,11 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule, Routes } from '@angular/router';
+import { InterceptService } from '../services/intercept.service';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-
 
 const routes: Routes = [
     { path: '', component: SigninComponent },
@@ -22,9 +23,15 @@ const routes: Routes = [
     exports: [],
     declarations: [
         SigninComponent,
-        SignupComponent,
-
+        SignupComponent
     ],
-    providers: [],
+    providers: [
+        InterceptService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: InterceptService,
+            multi: true
+        },
+    ],
 })
 export class AuthModule { }

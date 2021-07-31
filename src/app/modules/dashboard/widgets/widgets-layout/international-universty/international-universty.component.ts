@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UniversityService } from 'src/app/services/university.service';
+
 @Component({
   selector: 'app-international-universty',
   templateUrl: './international-universty.component.html',
   styleUrls: ['./international-universty.component.scss'],
 })
+
 export class InternationalUniverstyComponent implements OnInit {
   selectedUniversityRecord: any = [];
   findedUniversityRecord: any = [];
@@ -43,37 +45,37 @@ export class InternationalUniverstyComponent implements OnInit {
         this.locations = data.data.cities;
       }
     });
-    this.selectUniversty.get("universty").valueChanges.subscribe(el=>{
+    this.selectUniversty.get('universty').valueChanges.subscribe(el => {
       this.selectUniverstySubmit(el);
-    })
+    });
   }
 
-  scroll(id){
-    let el = document.getElementById(id);
-    document.getElementById(id).style.background = "red";
-    setTimeout(()=>{
+  scroll(id) {
+    const el = document.getElementById(id);
+    document.getElementById(id).style.background = 'red';
+    setTimeout(() => {
       document.getElementById(id).style.background = '';
-    }, 2000)
+    }, 2000);
     el.scrollIntoView();
   }
 
   selectUniverstySubmit(data) {
-    if(!data) this.selectedUniversityRecord = []
+    if (!data) { this.selectedUniversityRecord = [] }
     console.log('select Universty submit data', data);
     this.universityService.getUnvisity(data).then((data) => {
-      if(data){
-        this.selectedUniversityRecord = data.data
+      if (data) {
+        this.selectedUniversityRecord = data.data;
       }
     });
   }
 
   findUniversitySubmit() {
-    if (this.findUniversity.invalid) return;
+    if (this.findUniversity.invalid) { return; }
     console.log('select Universty submit data', this.findUniversity.value);
   }
 
   selectCounsellingSessionSubmit() {
-    if (this.counsellingSession.invalid) return;
+    if (this.counsellingSession.invalid) { return; }
     console.log('select Universty submit data', this.counsellingSession.value);
   }
 }

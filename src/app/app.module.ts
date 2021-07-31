@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -10,11 +9,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DemoMaterialModule } from './material-module';
 import { AuthGuard } from './auth/guard/auth.guard';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { InterceptService } from './services/intercept.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,8 +37,14 @@ import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     AngularSvgIconModule.forRoot()
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    InterceptService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptService,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

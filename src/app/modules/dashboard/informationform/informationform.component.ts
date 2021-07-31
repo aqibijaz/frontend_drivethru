@@ -3,8 +3,9 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProfileService } from '../profile/profile.service';
 import { MatStepper } from '@angular/material/stepper';
-import { GuardianInfo, PersonalInfo } from '../profile/models/Models';
+import { AcademicInterLevelInfo, AcademicMetricLevelInfo, GuardianInfo, PersonalInfo } from '../profile/models/Models';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-informationform',
   templateUrl: './informationform.component.html',
@@ -45,8 +46,25 @@ export class InformationFormComponent implements OnInit {
     guardianNTN: new FormControl(this.profileService.guardianInfo.guardianNTN || '', [Validators.required]),
   });
 
-  acadmicInfoForm = new FormGroup({
-    username: new FormControl('', [Validators.required]),
+  acadmicMetricInfoForm = new FormGroup({
+    examPassed: new FormControl(this.profileService.academicMetricLevelInfo.examPassed || 'O-Levels', [Validators.required]),
+    school: new FormControl(this.profileService.academicMetricLevelInfo.school || '', [Validators.required]),
+    board: new FormControl(this.profileService.academicMetricLevelInfo.board || 'Punjab', [Validators.required]),
+    yearOfPassing: new FormControl(this.profileService.academicMetricLevelInfo.yearOfPassing || '', [Validators.required]),
+    serialNo: new FormControl(this.profileService.academicMetricLevelInfo.serialNo || '', [Validators.required]),
+    referenceNo: new FormControl(this.profileService.academicMetricLevelInfo.referenceNo || '', [Validators.required]),
+    marksObtained: new FormControl(this.profileService.academicMetricLevelInfo.marksObtained || 0, [Validators.required, Validators.min(0)]),
+    totalMarks: new FormControl(this.profileService.academicMetricLevelInfo.totalMarks || 0, [Validators.required, Validators.min(0)]),
+  });
+
+  acadmicInterInfoForm = new FormGroup({
+    school: new FormControl(this.profileService.academicInterLevelInfo.school || '', [Validators.required]),
+    board: new FormControl(this.profileService.academicInterLevelInfo.board || '', [Validators.required]),
+    yearOfPassing: new FormControl(this.profileService.academicInterLevelInfo.yearOfPassing || '', [Validators.required]),
+    rollNo: new FormControl(this.profileService.academicInterLevelInfo.rollNo || '', [Validators.required]),
+    registrationNo: new FormControl(this.profileService.academicInterLevelInfo.registrationNo || '', [Validators.required]),
+    marksObtained: new FormControl(this.profileService.academicInterLevelInfo.marksObtained || '', [Validators.required]),
+    totalMarks: new FormControl(this.profileService.academicInterLevelInfo.totalMarks || '', [Validators.required]),
   });
 
   constructor(
@@ -66,14 +84,21 @@ export class InformationFormComponent implements OnInit {
 
   submitPersonalInfo(): void {
     if (this.personalInfoForm.invalid) {
-      this.snackBar.open('Please fill all required fields', 'Ok', {
-        duration: 5000
-      });
+      this.snackBar.open('Please fill all required fields', 'Ok', { duration: 5000 });
     }
     const personalInfo = this.personalInfoForm.getRawValue();
     this.profileService.personalInfo = new PersonalInfo(personalInfo);
-    this.stepperNext();
-    this.personalInfoForm.reset();
+
+    this.profileService.saveUserPersonalInfo().then((response) => {
+
+      this.stepperNext();
+      this.personalInfoForm.reset();
+
+    }).catch((error) => {
+
+      this.snackBar.open('An error occured please try again', 'Ok', { duration: 5000 });
+
+    });
   }
 
   fromGuardianToPersonal(): void {
@@ -126,15 +151,20 @@ export class InformationFormComponent implements OnInit {
   submitGardianInfo(): void {
 
     if (this.gardianInfoForm.invalid) {
-      this.snackBar.open('Please fill all required fields', 'Ok', {
-        duration: 5000
-      });
+      this.snackBar.open('Please fill all required fields', 'Ok', { duration: 5000 });
     }
 
     const formData = this.gardianInfoForm.getRawValue();
     this.profileService.guardianInfo = new GuardianInfo(formData);
-    this.stepperNext();
-    this.personalInfoForm.reset();
+
+    this.profileService.saveUserGuardianInfo().then((response) => {
+
+      this.stepperNext();
+      this.personalInfoForm.reset();
+
+    }).catch((error) => {
+      this.snackBar.open('An error occured please try again', 'Ok', { duration: 5000 });
+    });
   }
 
   fromGuardianToAcdamic(): void {
@@ -142,11 +172,61 @@ export class InformationFormComponent implements OnInit {
     const formData = this.gardianInfoForm.getRawValue();
     this.profileService.guardianInfo = new GuardianInfo(formData);
     this.stepperNext();
-    this.personalInfoForm.reset();
+  }
+
+  saveAcadmicInfo(): void {
+
+    if (this.acadmicMetricInfoForm.invalid || this.acadmicInterInfoForm.invalid) {
+      return;
+    }
+
+    const metricInfoForm = this.acadmicMetricInfoForm.getRawValue();
+    const interInfoForm = this.acadmicInterInfoForm.getRawValue();
+
+    this.profileService.academicMetricLevelInfo = new AcademicMetricLevelInfo({ metricInfoForm });
+    this.profileService.academicInterLevelInfo = new AcademicInterLevelInfo({ interInfoForm });
+
+    this.profileService.saveUserAcademicInfo().then((response) => {
+      this.stepperNext();
+    }).catch((e) => {
+
+      this.snackBar.open('An error occured please try again', 'Ok', { duration: 5000 });
+
+    });
 
   }
 
-  submitAcadmic(): void { }
+  updateAcademicMetricLevelInfoFormValues(): void {
+
+    this.acadmicMetricInfoForm.patchValue({
+
+      examPassed: this.profileService.academicMetricLevelInfo.examPassed,
+      school: this.profileService.academicMetricLevelInfo.school,
+      board: this.profileService.academicMetricLevelInfo.board,
+      yearOfPassing: this.profileService.academicMetricLevelInfo.yearOfPassing,
+      serialNo: this.profileService.academicMetricLevelInfo.serialNo,
+      referenceNo: this.profileService.academicMetricLevelInfo.referenceNo,
+      marksObtained: Number(this.profileService.academicMetricLevelInfo.marksObtained),
+      totalMarks: Number(this.profileService.academicMetricLevelInfo.totalMarks),
+    });
+
+  }
+
+  updateAcademicInterLevelInfoFormValues(): void {
+
+    this.acadmicInterInfoForm.patchValue({
+
+      school: this.profileService.academicInterLevelInfo.school,
+      board: this.profileService.academicInterLevelInfo.board,
+      yearOfPassing: this.profileService.academicInterLevelInfo.yearOfPassing,
+      rollNo: this.profileService.academicInterLevelInfo.rollNo,
+      registrationNo: this.profileService.academicInterLevelInfo.registrationNo,
+      marksObtained: Number(this.profileService.academicInterLevelInfo.marksObtained),
+      totalMarks: Number(this.profileService.academicInterLevelInfo.totalMarks)
+
+    });
+
+  }
 
   submitPrefAndCommenceApplying(): void { }
 

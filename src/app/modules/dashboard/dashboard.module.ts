@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { WidgetsLayoutComponent } from './widgets/widgets-layout/widgets-layout.component';
 import { AvatarModule } from 'ngx-avatar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatRippleModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -18,6 +18,7 @@ import { NationalUniverstyComponent } from './widgets/widgets-layout/national-un
 import { DemoMaterialModule } from '../../material-module';
 import { InternationalUniverstyComponent } from './widgets/widgets-layout/international-universty/international-universty.component';
 import { UniversityService } from 'src/app/services/university.service';
+import { InterceptService } from 'src/app/services/intercept.service';
 const routes: Routes = [
   { path: '', component: DashboardLayoutComponent },
   { path: 'form', component: InformationFormComponent },
@@ -46,6 +47,14 @@ const routes: Routes = [
     NgbCarouselModule,
     DemoMaterialModule
   ],
-  providers: [ProfileService ],
+  providers: [
+    ProfileService,
+    InterceptService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptService,
+      multi: true
+    },
+  ],
 })
-export class DashboardModule {}
+export class DashboardModule { }

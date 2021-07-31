@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
     public service: UniversityService
   ) {
     this.service.counterySwitch.subscribe((data) => {
-      if (data == 'national') {
+      if (data === 'national') {
         this.countryCheck = true;
       } else {
         this.countryCheck = false;
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   checkIsUserLogedIn(): boolean {
     const cookieExists = this.cookieService.check('token');
@@ -42,19 +42,18 @@ export class HeaderComponent implements OnInit {
 
   logoutUser(): void {
     const cookieExists = this.cookieService.check('token');
-
     if (cookieExists) {
-      this.cookieService.delete('token');
-      this.service.logout.next(true)
+      this.cookieService.deleteAll();
+      this.service.logout.next(true);
       this.router.navigateByUrl('/auth/signin');
     }
   }
 
-  switchInternational() {
+  switchInternational(): void {
     this.service.counterySwitch.next('international');
   }
 
-  switchNational() {
+  switchNational(): void {
     this.service.counterySwitch.next('national');
   }
 }

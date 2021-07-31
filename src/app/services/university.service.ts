@@ -1,9 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { SignUpModel } from '../auth/signup/signup.component';
 import { BehaviorSubject } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +10,9 @@ export class UniversityService {
   public counterySwitch: BehaviorSubject<string> = new BehaviorSubject<string>('international');
   public logout: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-  get counterySwitchData(): String {
+  get counterySwitchData(): string {
     return this.counterySwitch.value;
   }
 
