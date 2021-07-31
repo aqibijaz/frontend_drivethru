@@ -12,7 +12,6 @@ export class WidgetsLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.counterySwitch.subscribe(data=>{
-      debugger
        this.switch = data
     })
   }

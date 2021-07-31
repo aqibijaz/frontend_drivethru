@@ -1,107 +1,170 @@
 <div class="container-fluid">
-  
-
   <div class="row">
     <div class="col-3">
-      <button mat-flat-button color="primary">Select Country</button>
+      <button mat-flat-button color="primary" (click)="scroll('target1')">Select University</button>
     </div>
     <div class="col-3 text-center">
-      <button mat-flat-button color="primary">
-        Find Universty
-      </button>
+      <button mat-flat-button color="primary" (click)="scroll('target2')">Find Universty</button>
     </div>
     <div class="col-3 text-center">
-      <button mat-flat-button color="primary">
-        Past Papers
-      </button>
+      <button mat-flat-button color="primary" (click)="scroll('target3')">Past Papers</button>
     </div>
     <div class="col-3 text-center">
-      <button mat-flat-button color="primary">
-        Counselling Session
-      </button>
+      <button mat-flat-button color="primary" (click)="scroll('target4')">Counselling Session</button>
     </div>
   </div>
 
   <hr class="px-5" />
 
-  <button mat-flat-button color="primary">Select Country</button>
-  <div class="row my-3 px-3">
-    <div class="col-12">
-      <mat-form-field
-        style="width: 100%"
-        class="example-form-field"
-        appearance="fill"
-      >
-        <mat-label>University Name</mat-label>
-        <input matInput type="text" name="Universty Name" />
-        <button matSuffix mat-icon-button aria-label="Clear">
-          <mat-icon>search</mat-icon>
-        </button>
-      </mat-form-field>
+  <button id='target1' mat-flat-button color="primary">Select University</button>
+  <form [formGroup]="selectUniversty">
+    <div class="row my-3 px-3">
+      <div class="col-12">
+        <mat-form-field
+          style="width: 100%"
+          class="example-form-field"
+          appearance="fill"
+        >
+          <mat-label>University Name</mat-label>
+          <input
+            matInput
+            type="text"
+            name="Universty Name"
+            formControlName="universty"
+          />
+          <button
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="selectUniverstySubmit()"
+          >
+            <mat-icon>search</mat-icon>
+          </button>
+          <mat-error
+            *ngIf="selectUniversty.get('universty').hasError('required')"
+          >
+            University Name is requried
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
-  </div>
+  </form>
+  <ng-container *ngIf="selectedUniversityRecord.length > 0">
+    <div class="card my-4" *ngFor="let uniRerod of selectedUniversityRecord">
+      <div class="card-body">
+        <h4 class="card-title mb-2">Department: {{ uniRerod.department }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">City: {{ uniRerod.city }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">
+          Facutly: {{ uniRerod.facutly }}
+        </h4>
+        <h4 class="card-subtitle mb-2 text-muted">
+          Eligibility: {{ uniRerod.eligibility }}
+        </h4>
+        <h4 class="card-subtitle mb-2 text-muted">Date: {{ uniRerod.date }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">Test: {{ uniRerod.test }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">
+          Years Of Graduation: {{ uniRerod.years_of_graduation }}
+        </h4>
+      </div>
+    </div>
+    <hr class="px-5" />
+  </ng-container>
 
-  <button mat-flat-button color="primary">
-    Find Universty
-  </button>
-  <div class="row my-3 px-3">
-    <div class="col-6">
-      <mat-form-field style="width: 100%" appearance="fill">
-        <mat-label>Universty Name</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">Comsats</mat-option>
-          <mat-option value="2">LUMS</mat-option>
-          <mat-option value="3">GC</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col-6">
+  <button id='target2' mat-flat-button color="primary">Find Universty</button>
+  <form [formGroup]="findUniversity">
+    <div class="row my-3 px-3">
+      <div class="col-6">
         <mat-form-field style="width: 100%" appearance="fill">
-        <mat-label>Location (city)</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">Lahore</mat-option>
-          <mat-option value="2">Islamabad</mat-option>
-          <mat-option value="3">Vehari</mat-option>
-        </mat-select>
-      </mat-form-field>
+          <mat-label>Universty Name</mat-label>
+          <mat-select disableRipple formControlName="universty">
+            <mat-option
+              *ngFor="let universty of universities"
+              [value]="universty"
+            >
+              {{ universty }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="findUniversity.get('universty').hasError('required')"
+          >
+            University Name is requried
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6"></div>
     </div>
-  </div>
 
-  <div class="row my-3 px-3">
-    <div class="col-6">
-      <mat-form-field style="width: 100%" appearance="fill">
-        <mat-label>Department Name</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">Computer Sience</mat-option>
-          <mat-option value="2">Engineering</mat-option>
-          <mat-option value="3">MS English</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <div class="row my-3 px-3">
+      <div class="col-6">
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Department Name</mat-label>
+          <mat-select disableRipple formControlName="department">
+            <mat-option
+              *ngFor="let department of departments"
+              [value]="department"
+            >
+              {{ department }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="findUniversity.get('department').hasError('required')"
+          >
+            Department is requried
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Location (city)</mat-label>
+          <mat-select disableRipple formControlName="location">
+            <mat-option *ngFor="let location of locations" [value]="location">
+              {{ location }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="findUniversity.get('location').hasError('required')"
+          >
+            Location (city) is requried
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="col-6">
-         <mat-form-field style="width: 100%" appearance="fill">
-        <mat-label>Location (city)</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">Lahore</mat-option>
-          <mat-option value="2">Islamabad</mat-option>
-          <mat-option value="3">Vehari</mat-option>
-        </mat-select>
-      </mat-form-field>
+
+    <div class="row mb-3 text-center">
+      <div class="col-12">
+        <button
+          mat-flat-button
+          class="searchCounter"
+          (click)="findUniversitySubmit()"
+        >
+          Find Your Countery <mat-icon>search</mat-icon>
+        </button>
+      </div>
     </div>
-  </div>
+  </form>
 
-  <div class="row mb-3 text-center">
-    <div class="col-12">
-      <button mat-flat-button class="searchCounter">
-        Find Your Countery <mat-icon>search</mat-icon>
-      </button>
+  <ng-container *ngIf="findedUniversityRecord.length > 0">
+    <div class="card my-4" *ngFor="let uniRerod of findedUniversityRecord">
+      <div class="card-body">
+        <h4 class="card-title mb-2">Department: {{ uniRerod.department }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">City: {{ uniRerod.city }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">
+          Facutly: {{ uniRerod.facutly }}
+        </h4>
+        <h4 class="card-subtitle mb-2 text-muted">
+          Eligibility: {{ uniRerod.eligibility }}
+        </h4>
+        <h4 class="card-subtitle mb-2 text-muted">Date: {{ uniRerod.date }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">Test: {{ uniRerod.test }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">
+          Years Of Graduation: {{ uniRerod.years_of_graduation }}
+        </h4>
+      </div>
     </div>
-  </div>
+    <hr class="px-5" />
+  </ng-container>
 
-
-<button mat-flat-button color="primary">
-     Find Past Papers
-  </button>
+  <button mat-flat-button color="primary" id='target3'>Find Past Papers</button>
   <div class="row my-3 px-3">
     <div class="col-12">
       <mat-form-field style="width: 100%" appearance="fill">
@@ -123,62 +186,98 @@
     </div>
   </div>
 
+  <button mat-flat-button color="primary" id='target4'>Counselling Session</button>
 
-  <button mat-flat-button color="primary">
-    Counselling Session
-  </button>
-  <div class="row my-3 px-3">
-    <div class="col-6">
-      <mat-form-field style="width: 100%" appearance="fill">
-        <mat-label>Universty Name</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">Comsats</mat-option>
-          <mat-option value="2">LUMS</mat-option>
-          <mat-option value="3">GC</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col-6">
+  <form [formGroup]="counsellingSession">
+    <div class="row my-3 px-3">
+      <div class="col-6">
         <mat-form-field style="width: 100%" appearance="fill">
-        <mat-label>Location (city)</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">Lahore</mat-option>
-          <mat-option value="2">Islamabad</mat-option>
-          <mat-option value="3">Vehari</mat-option>
-        </mat-select>
-      </mat-form-field>
+          <mat-label>Universty Name</mat-label>
+          <mat-select disableRipple formControlName="universty">
+            <mat-option
+              *ngFor="let universty of universities"
+              [value]="universty"
+            >
+              {{ universty }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="counsellingSession.get('universty').hasError('required')"
+          >
+            Universty is requried
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6"></div>
     </div>
-  </div>
 
-  <div class="row my-3 px-3">
-    <div class="col-6">
-      <mat-form-field style="width: 100%" appearance="fill">
-        <mat-label>Department Name</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">Computer Sience</mat-option>
-          <mat-option value="2">Engineering</mat-option>
-          <mat-option value="3">MS English</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <div class="row my-3 px-3">
+      <div class="col-6">
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Department Name</mat-label>
+          <mat-select disableRipple formControlName="department">
+            <mat-option
+              *ngFor="let department of departments"
+              [value]="department"
+            >
+              {{ department }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="counsellingSession.get('department').hasError('required')"
+          >
+            Department is requried
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Location (city)</mat-label>
+          <mat-select disableRipple formControlName="location">
+            <mat-option *ngFor="let location of locations" [value]="location">
+              {{ location }}
+            </mat-option>
+            <mat-error
+              *ngIf="counsellingSession.get('location').hasError('required')"
+            >
+              Location (city) is requried
+            </mat-error>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="col-6">
-         <mat-form-field style="width: 100%" appearance="fill">
-        <mat-label>Location (city)</mat-label>
-        <mat-select disableRipple>
-          <mat-option value="1">Lahore</mat-option>
-          <mat-option value="2">Islamabad</mat-option>
-          <mat-option value="3">Vehari</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </div>
 
-  <div class="row mb-3 text-center">
-    <div class="col-12">
-      <button mat-flat-button class="searchCounter">
-        Find Your Countery <mat-icon>search</mat-icon>
-      </button>
+    <div class="row mb-3 text-center">
+      <div class="col-12">
+        <button
+          mat-flat-button
+          class="searchCounter"
+          (click)="selectCounsellingSessionSubmit()"
+        >
+          Find Your Countery <mat-icon>search</mat-icon>
+        </button>
+      </div>
     </div>
-  </div>
+  </form>
 
+  <ng-container *ngIf="counsellingRecord.length > 0">
+    <div class="card my-4" *ngFor="let uniRerod of counsellingRecord">
+      <div class="card-body">
+        <h4 class="card-title mb-2">Department: {{ uniRerod.department }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">City: {{ uniRerod.city }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">
+          Facutly: {{ uniRerod.facutly }}
+        </h4>
+        <h4 class="card-subtitle mb-2 text-muted">
+          Eligibility: {{ uniRerod.eligibility }}
+        </h4>
+        <h4 class="card-subtitle mb-2 text-muted">Date: {{ uniRerod.date }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">Test: {{ uniRerod.test }}</h4>
+        <h4 class="card-subtitle mb-2 text-muted">
+          Years Of Graduation: {{ uniRerod.years_of_graduation }}
+        </h4>
+      </div>
+    </div>
+    <hr class="px-5" />
+  </ng-container>
 </div>
