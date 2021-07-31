@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class UniversityService {
-  public counterySwitch: BehaviorSubject<string> = new BehaviorSubject<string>('national');
+  public counterySwitch: BehaviorSubject<string> = new BehaviorSubject<string>('international');
   public logout: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(private httpClient: HttpClient) {}

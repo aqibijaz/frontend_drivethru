@@ -30,9 +30,8 @@ export class InternationalUniverstyComponent implements OnInit {
     });
 
     this.counsellingSession = new FormGroup({
-      universty: new FormControl('', [Validators.required]),
-      department: new FormControl('', [Validators.required]),
-      location: new FormControl('', [Validators.required]),
+      comment: new FormControl('', [Validators.required]),
+      reason: new FormControl('', [Validators.required])
     });
   }
 
@@ -44,6 +43,9 @@ export class InternationalUniverstyComponent implements OnInit {
         this.locations = data.data.cities;
       }
     });
+    this.selectUniversty.get("universty").valueChanges.subscribe(el=>{
+      this.selectUniverstySubmit(el);
+    })
   }
 
   scroll(id){
@@ -55,9 +57,14 @@ export class InternationalUniverstyComponent implements OnInit {
     el.scrollIntoView();
   }
 
-  selectUniverstySubmit() {
-    if (this.selectUniversty.invalid) return;
-    console.log('select Universty submit data', this.selectUniversty.value);
+  selectUniverstySubmit(data) {
+    if(!data) this.selectedUniversityRecord = []
+    console.log('select Universty submit data', data);
+    this.universityService.getUnvisity(data).then((data) => {
+      if(data){
+        this.selectedUniversityRecord = data.data
+      }
+    });
   }
 
   findUniversitySubmit() {

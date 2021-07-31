@@ -30,18 +30,22 @@ export class NationalUniverstyComponent implements OnInit {
     });
 
     this.counsellingSession = new FormGroup({
-      universty: new FormControl('', [Validators.required]),
-      department: new FormControl('', [Validators.required]),
-      location: new FormControl('', [Validators.required]),
+      comment: new FormControl('', [Validators.required]),
+      reason: new FormControl('', [Validators.required]),
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selectUniversty.get('universty').valueChanges.subscribe((el) => {
+      this.selectUniverstySubmit(el);
+    });
+  }
 
-  selectUniverstySubmit() {
-    if (this.selectUniversty.invalid) return;
-
-    console.log('select Universty submit data', this.selectUniversty.value);
+  selectUniverstySubmit(data) {
+    console.log('select Universty submit data', data);
+    // this.universityService.getUnvisity(data).then(data=>{
+    //   console.log(data)
+    // })
   }
 
   selectFieldSubmit() {
