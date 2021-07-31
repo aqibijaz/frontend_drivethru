@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UniversityService } from 'src/app/services/university.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class InternationalUniverstyComponent implements OnInit {
   selectedUniversityRecord: any = [];
   findedUniversityRecord: any = [];
   counsellingRecord: any = [];
-
+  email = null;
   universities: any = [];
   departments: any = [];
   locations: any = [];
@@ -20,7 +21,10 @@ export class InternationalUniverstyComponent implements OnInit {
   findUniversity: FormGroup;
   counsellingSession: FormGroup;
 
-  constructor(private universityService: UniversityService) {
+  constructor(
+    private universityService: UniversityService,
+    private snackBar: MatSnackBar
+  ) {
     this.selectUniversty = new FormGroup({
       universty: new FormControl('', [Validators.required]),
     });
@@ -32,8 +36,8 @@ export class InternationalUniverstyComponent implements OnInit {
     });
 
     this.counsellingSession = new FormGroup({
-      comment: new FormControl('', [Validators.required]),
-      reason: new FormControl('', [Validators.required])
+      wantHelp: new FormControl('', [Validators.required]),
+      reason: new FormControl('', [Validators.required]),
     });
   }
 
@@ -45,13 +49,18 @@ export class InternationalUniverstyComponent implements OnInit {
         this.locations = data.data.cities;
       }
     });
-    this.selectUniversty.get('universty').valueChanges.subscribe(el => {
+
+    this.selectUniversty.get('universty').valueChanges.subscribe((el) => {
       this.selectUniverstySubmit(el);
+    });
+    
+    this.universityService.getUser().then((data) => {
+      this.email = data.data.email;
     });
   }
 
   scroll(id) {
-    const el = document.getElementById(id);
+    let el = document.getElementById(id);
     document.getElementById(id).style.background = 'red';
     setTimeout(() => {
       document.getElementById(id).style.background = '';
@@ -60,13 +69,20 @@ export class InternationalUniverstyComponent implements OnInit {
   }
 
   selectUniverstySubmit(data) {
-    if (!data) { this.selectedUniversityRecord = [] }
+    if (!data) this.selectedUniversityRecord = [];
     console.log('select Universty submit data', data);
-    this.universityService.getUnvisity(data).then((data) => {
-      if (data) {
-        this.selectedUniversityRecord = data.data;
-      }
-    });
+    this.universityService
+      .getUnvisity(data)
+      .then((data) => {
+        if (data) {
+          this.selectedUniversityRecord = data.data;
+        }
+      })
+      .catch((response) => {
+        this.snackBar.open("Record Not Found", 'Ok', {
+          duration: 5000,
+        });
+      });;
   }
 
   findUniversitySubmit() {
@@ -75,7 +91,21 @@ export class InternationalUniverstyComponent implements OnInit {
   }
 
   selectCounsellingSessionSubmit() {
-    if (this.counsellingSession.invalid) { return; }
-    console.log('select Universty submit data', this.counsellingSession.value);
+    if (this.counsellingSession.invalid) return;
+    this.counsellingSession.value.email = this.email;
+
+    this.universityService
+      .postCounsellingSession(this.counsellingSession.value)
+      .then((data) => {
+        this.snackBar.open("Counselling Session Sumbit Successfully", 'Ok', {
+          duration: 5000,
+        });
+        this.counsellingSession.reset();
+      })
+      .catch((response) => {
+        this.snackBar.open(response.error.message, 'Ok', {
+          duration: 5000,
+        });
+      });;
   }
 }
