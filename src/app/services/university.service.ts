@@ -15,7 +15,7 @@ export class UniversityService {
   constructor(
     private httpClient: HttpClient,
     private cookieService: CookieService
-  ) {}
+  ) { }
 
   get counterySwitchData(): string {
     return this.counterySwitch.value;
@@ -68,4 +68,17 @@ export class UniversityService {
         }, reject);
     });
   }
+
+  saveNationalPrefrence(preferedUnis: string[]): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.httpClient
+        .post(environment.apiURL + 'university/preference', {
+          preferedUnis
+        })
+        .subscribe((response: any) => {
+          resolve(response);
+        }, reject);
+    });
+  }
+
 }

@@ -5,6 +5,7 @@ import { ProfileService } from '../profile/profile.service';
 import { MatStepper } from '@angular/material/stepper';
 import { AcademicInterLevelInfo, AcademicMetricLevelInfo, GuardianInfo, PersonalInfo } from '../profile/models/Models';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UniversityService } from 'src/app/services/university.service';
 
 @Component({
   selector: 'app-informationform',
@@ -21,6 +22,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class InformationFormComponent implements OnInit {
 
   @ViewChild('stepper') private stepper: MatStepper;
+
+  selectedUniversities = [];
+
+  univerisitiesList = [];
+
+  universityForm = new FormGroup({
+    selectedUni: new FormControl()
+  });
 
   personalInfoForm = new FormGroup({
     name: new FormControl(this.profileService.personalInfo.name || '', [Validators.required]),
@@ -70,10 +79,21 @@ export class InformationFormComponent implements OnInit {
 
   constructor(
     private profileService: ProfileService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private universityService: UniversityService
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+    this.universityService.getUniDepCity().then((response) => {
+      this.univerisitiesList = response.data.universities;
+    });
+
+    this.universityForm.get('selectedUni').valueChanges.subscribe(() => {
+      this.selectedUniversities = this.universityForm.get('selectedUni').value;
+    });
+
+  }
 
   stepperNext(): any {
     this.stepper.next();
@@ -227,6 +247,23 @@ export class InformationFormComponent implements OnInit {
 
     });
 
+  }
+
+  saveUserPreferences(): void {
+
+    if (this.selectedUniversities.length < 1) {
+
+      this.snackBar.open('Please Select Atleast One Univerisity', 'Ok', { duration: 5000 });
+      return;
+    }
+
+    this.universityService.saveNationalPrefrence(this.selectedUniversities).then((response) => {
+
+    }).catch((error) => {
+      this.snackBar.open('An error occured please try again', 'Ok', {
+        duration: 5000
+      });
+    });
   }
 
   submitPrefAndCommenceApplying(): void { }

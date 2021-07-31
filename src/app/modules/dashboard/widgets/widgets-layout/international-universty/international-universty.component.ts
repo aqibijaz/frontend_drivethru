@@ -53,7 +53,7 @@ export class InternationalUniverstyComponent implements OnInit {
     this.selectUniversty.get('universty').valueChanges.subscribe((el) => {
       this.selectUniverstySubmit(el);
     });
-    
+
     this.universityService.getUser().then((data) => {
       this.email = data.data.email;
     });
@@ -82,7 +82,7 @@ export class InternationalUniverstyComponent implements OnInit {
         this.snackBar.open("Record Not Found", 'Ok', {
           duration: 5000,
         });
-      });;
+      });
   }
 
   findUniversitySubmit() {
@@ -106,6 +106,6 @@ export class InternationalUniverstyComponent implements OnInit {
         this.snackBar.open(response.error.message, 'Ok', {
           duration: 5000,
         });
-      });;
+      });
   }
 }

@@ -310,6 +310,28 @@
           <ng-template matStepLabel>Set Your Preference</ng-template>
 
           <div class="row justify-content-center">
+            <div class="col-12">
+
+              <form [formGroup]="universityForm">
+
+                <ng-select appearance='fill' placeholder="Universty Name" formControlName="selectedUni"
+                  [items]="univerisitiesList" bindLabel="name" appendTo="body" [multiple]="true">
+                </ng-select>
+
+              </form>
+
+              <ng-container *ngIf="selectedUniversities.length > 0">
+                <div class="card my-4" *ngFor="let name of selectedUniversities">
+                  <div class="card-body">
+                    <h4 class="card-title mb-2">University: {{ name }}</h4>
+                    <!-- <h4 class="card-subtitle mb-2 text-muted">City: {{ uniRerod.city }}</h4>
+                      <h4 class="card-subtitle mb-2 text-muted"> Facutly: {{ uniRerod.facutly }} </h4> -->
+                  </div>
+                </div>
+                <hr class="px-5" />
+              </ng-container>
+
+            </div>
             <div class="col-6">
               <div class="row">
                 <div class="col-6">
@@ -330,6 +352,27 @@
           <ng-template matStepLabel>Commence Applying</ng-template>
 
           <div class="row justify-content-center">
+
+            <div class="col-12">
+
+              <ng-container *ngIf="selectedUniversities.length > 0">
+                <div class="card my-4" *ngFor="let name of selectedUniversities">
+                  <div class="card-body">
+                    <h4 class="card-title mb-2">University: {{ name }}</h4>
+                    <h4 class="card-subtitle mb-2 text-muted">Price: 1&nbsp;$</h4>
+                  </div>
+                </div>
+                <div class="card my-4">
+
+                  <div class="card-body">
+                    <h4 class="card-title mb-2">Net Amount &nbsp;{{selectedUniversities.length}}&nbsp;$</h4>
+                  </div>
+
+                </div>
+                <hr class="px-5" />
+              </ng-container>
+            </div>
+
             <div class="col-6">
               <div class="row">
                 <div class="col-6">
@@ -338,7 +381,8 @@
                   </button>
                 </div>
                 <div class="col-6">
-                  <button type="submit" (click)="stepperNext()" class="btn btn-default submitbutton">
+                  <button type="submit" [disabled]="selectedUniversities.length === 0" (click)="saveUserPreferences()"
+                    class="btn btn-default submitbutton">
                     Submit
                   </button>
                 </div>

@@ -151,9 +151,7 @@
           </mat-select> -->
           <input matInput type="text" formControlName="wantHelp">
 
-          <mat-error
-            *ngIf="counsellingSession.get('wantHelp').hasError('required')"
-          >
+          <mat-error *ngIf="counsellingSession.get('wantHelp').hasError('required')">
             Comment is requried
           </mat-error>
         </mat-form-field>
