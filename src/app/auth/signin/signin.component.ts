@@ -84,6 +84,7 @@ export class SigninComponent implements OnInit {
           then((response) => {
             this.cookieService.deleteAll();
             this.cookieService.set('token', response.data.token);
+            this.service.getUser();
             this.router.navigateByUrl('dashboard');
             this.service.logout.next(false);
           }).catch((response) => {
