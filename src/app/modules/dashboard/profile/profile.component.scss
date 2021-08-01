@@ -1,7 +1,7 @@
 .wrapper{
     width: 100%;
     height: 100%;
-    background: #2c3942;
+    background: rgb(42,83,143);
     padding: 20px;
 }
 .profile-img-wrapper{
@@ -76,4 +76,12 @@ li{
 }
 :host ::ng-deep .mat-drawer-inner-container{
     padding-top: 5px;
+}
+
+.support-center {
+    border-radius: 20px;
+    background-color: #5E7CAA;
+    color: white;
+    height: 150px;
+    width: 100%;
 }
