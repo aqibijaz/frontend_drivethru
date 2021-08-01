@@ -38,7 +38,7 @@ export class SigninComponent implements OnInit {
     private snackBar: MatSnackBar,
     private cookieService: CookieService,
     private service: UniversityService,
-    private socialAuthService: AuthService
+    private socialAuthService: AuthService,
   ) { }
 
   ngOnInit(): void { }
@@ -53,6 +53,7 @@ export class SigninComponent implements OnInit {
       then((response) => {
         this.cookieService.deleteAll();
         this.cookieService.set('token', response.data.token);
+        this.service.getUser();
         this.router.navigateByUrl('dashboard');
         this.service.logout.next(false);
       }).catch((response) => {

@@ -9,10 +9,10 @@ import { SignUpModel } from '../auth/signup/signup.component';
 export class LocalAuthService {
 
     constructor(
-        private httpClient: HttpClient
+        private httpClient: HttpClient,
     ) { }
 
-    loginUser(Contact: string, Password: string ): Promise<any> {
+    loginUser(Contact: string, Password: string): Promise<any> {
 
         return new Promise((resolve, reject) => {
             this.httpClient.post(environment.apiURL + 'users/signIn',
@@ -26,7 +26,7 @@ export class LocalAuthService {
         });
     }
 
-    loginWithGoogle(socialAuth:any ): Promise<any> {
+    loginWithGoogle(socialAuth: any): Promise<any> {
 
         return new Promise((resolve, reject) => {
             this.httpClient.post(environment.apiURL + 'users/signIn',
