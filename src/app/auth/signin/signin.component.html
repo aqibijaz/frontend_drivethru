@@ -16,9 +16,10 @@
                                     <input type="password" formControlName="password" placeholder="Password"
                                         class="Password mt-3 form-control">
                                 </div>
-                                <a class="forgot_password">Forgot Your Password?</a>
+                                <!-- <a class="forgot_password">Forgot Your Password?</a> -->
                                 <input type="submit" class="btn" (click)="submitForm()">
                             </form>
+                            <button class="btn btn-primary mt-2" (click)="socialSignIn('google')">Sign in with Google</button>
                         </div>
                         <div>
                             <p class="mt-30 account_p"> Don't have an account?
