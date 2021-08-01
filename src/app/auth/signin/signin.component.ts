@@ -18,14 +18,14 @@ import {
 })
 export class SigninComponent implements OnInit {
 
-//    let socialPlatformProvider;
-// if (socialPlatform == "facebook") {
-//   socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
-// } else if (socialPlatform == "google") {
-//   socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-// } else if (socialPlatform == "linkedin") {
-//   socialPlatformProvider = LinkedinLoginProvider.PROVIDER_ID;
-// }
+  //    let socialPlatformProvider;
+  // if (socialPlatform == "facebook") {
+  //   socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+  // } else if (socialPlatform == "google") {
+  //   socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+  // } else if (socialPlatform == "linkedin") {
+  //   socialPlatformProvider = LinkedinLoginProvider.PROVIDER_ID;
+  // }
 
   singInForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
@@ -38,6 +38,7 @@ export class SigninComponent implements OnInit {
     private snackBar: MatSnackBar,
     private cookieService: CookieService,
     private service: UniversityService,
+    private socialAuthService: AuthService
   ) { }
 
   ngOnInit(): void { }
@@ -57,5 +58,38 @@ export class SigninComponent implements OnInit {
       }).catch((response) => {
         this.snackBar.open(response.error.message, 'Ok', { duration: 5000 });
       });
+  }
+
+
+  public socialSignIn(socialPlatform: string) {
+    let socialPlatformProvider;
+    if (socialPlatform == "facebook") {
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+    } else if (socialPlatform == "google") {
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    }
+
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        // console.log(socialPlatform + " sign in data : ", userData);
+        const socialAuth = {
+          "googleId": userData.id,
+          "fullName": userData.name,
+          "email": userData.email,
+          "profileImage": userData.image
+        }
+
+        this.authService.loginWithGoogle(socialAuth).
+          then((response) => {
+            this.cookieService.deleteAll();
+            this.cookieService.set('token', response.data.token);
+            this.router.navigateByUrl('dashboard');
+            this.service.logout.next(false);
+          }).catch((response) => {
+            this.snackBar.open(response.error.message, 'Ok', { duration: 5000 });
+          });
+
+      }
+    );
   }
 }
