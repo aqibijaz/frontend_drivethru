@@ -3,8 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { AuthService } from 'src/app/services/auth.service';
+import { LocalAuthService } from 'src/app/services/auth.service';
 import { UniversityService } from 'src/app/services/university.service';
+import {
+  AuthService,
+  FacebookLoginProvider,
+  GoogleLoginProvider
+} from 'angular-6-social-login';
 
 @Component({
   selector: 'app-signin',
@@ -13,6 +18,15 @@ import { UniversityService } from 'src/app/services/university.service';
 })
 export class SigninComponent implements OnInit {
 
+//    let socialPlatformProvider;
+// if (socialPlatform == "facebook") {
+//   socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+// } else if (socialPlatform == "google") {
+//   socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+// } else if (socialPlatform == "linkedin") {
+//   socialPlatformProvider = LinkedinLoginProvider.PROVIDER_ID;
+// }
+
   singInForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
@@ -20,7 +34,7 @@ export class SigninComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService,
+    private authService: LocalAuthService,
     private snackBar: MatSnackBar,
     private cookieService: CookieService,
     private service: UniversityService,

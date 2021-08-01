@@ -6,7 +6,7 @@ import { SignUpModel } from '../auth/signup/signup.component';
 @Injectable({
     providedIn: 'root'
 })
-export class AuthService {
+export class LocalAuthService {
 
     constructor(
         private httpClient: HttpClient

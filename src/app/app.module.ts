@@ -15,6 +15,28 @@ import { AuthGuard } from './auth/guard/auth.guard';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { InterceptService } from './services/intercept.service';
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from "angular-6-social-login";
+
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider("Your-Facebook-app-id")
+      },
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider("244656544109-2ghve5egaa3e9dfkqan7osgb1i1i55on.apps.googleusercontent.com")
+      },
+    ]
+  );
+  return config;
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +56,8 @@ import { InterceptService } from './services/intercept.service';
     HttpClientModule,
     NgbModule,
     NgbCarouselModule,
-    AngularSvgIconModule.forRoot()
+    AngularSvgIconModule.forRoot(),
+    SocialLoginModule
   ],
   providers: [
     AuthGuard,
@@ -44,6 +67,10 @@ import { InterceptService } from './services/intercept.service';
       useClass: InterceptService,
       multi: true
     },
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
   ],
   bootstrap: [AppComponent],
 })
