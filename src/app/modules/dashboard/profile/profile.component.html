@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="profile-img-wrapper">
-        <ngx-avatar size="162" borderColor="#fff" src="assets/img/profile-img.jpg">
+        <ngx-avatar size="162" borderColor="#fff" src="{{imageSourcePath}}">
         </ngx-avatar>
         <button class="set-img-btn">
             <span class="material-icons"> photo_camera </span>
@@ -8,7 +8,7 @@
     </div>
     <div class="title">
         <span>
-            John Doe
+            {{loggedInUser.data.fullName || 'John Doe'}}
         </span>
         <span class="material-icons">
             edit
@@ -16,7 +16,7 @@
     </div>
     <div class="id-wrapper">
         <span>
-            Alison ID: 10329495
+            DriveThru ID: {{loggedInUser.data.studentId || ''}}
         </span>
     </div>
     <div class="id-wrapper">

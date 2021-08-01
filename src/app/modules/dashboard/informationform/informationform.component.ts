@@ -257,13 +257,15 @@ export class InformationFormComponent implements OnInit {
       return;
     }
 
-    this.universityService.saveNationalPrefrence(this.selectedUniversities).then((response) => {
-      this.snackBar.open('Your Data Has Been Submitted', 'Ok', { duration: 5000 });
-    }).catch((error) => {
-      this.snackBar.open('An error occured please try again', 'Ok', {
-        duration: 5000
+    this.universityService.saveNationalPrefrence(this.selectedUniversities)
+      .then((response) => {
+        this.snackBar.open('Your Data Has Been Submitted', 'Ok', { duration: 5000 });
+      })
+      .catch((error) => {
+        this.snackBar.open('An error occured please try again', 'Ok', {
+          duration: 5000
+        });
       });
-    });
   }
 
   submitPrefAndCommenceApplying(): void { }

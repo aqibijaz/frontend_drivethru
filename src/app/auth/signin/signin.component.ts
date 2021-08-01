@@ -18,14 +18,14 @@ import {
 })
 export class SigninComponent implements OnInit {
 
-//    let socialPlatformProvider;
-// if (socialPlatform == "facebook") {
-//   socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
-// } else if (socialPlatform == "google") {
-//   socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-// } else if (socialPlatform == "linkedin") {
-//   socialPlatformProvider = LinkedinLoginProvider.PROVIDER_ID;
-// }
+  //    let socialPlatformProvider;
+  // if (socialPlatform == "facebook") {
+  //   socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+  // } else if (socialPlatform == "google") {
+  //   socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+  // } else if (socialPlatform == "linkedin") {
+  //   socialPlatformProvider = LinkedinLoginProvider.PROVIDER_ID;
+  // }
 
   singInForm = new FormGroup({
     username: new FormControl('', [Validators.required]),

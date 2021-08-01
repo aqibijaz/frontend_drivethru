@@ -74,7 +74,7 @@ export class NationalUniverstyComponent implements OnInit {
           duration: 5000,
         });
         this.counsellingSession.setValue({
-          wantHelp:' ',
+          wantHelp: ' ',
           reason: ' '
         });
       })

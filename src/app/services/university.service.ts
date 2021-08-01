@@ -64,6 +64,9 @@ export class UniversityService {
       this.httpClient
         .get(environment.apiURL + 'users/getLoginUser', { headers })
         .subscribe((response: any) => {
+          if (response !== null) {
+            localStorage.setItem('loginUser', JSON.stringify(response));
+          }
           resolve(response);
         }, reject);
     });
@@ -75,6 +78,16 @@ export class UniversityService {
         .post(environment.apiURL + 'contactMail/preference', {
           univerityList: preferedUnis
         })
+        .subscribe((response: any) => {
+          resolve(response);
+        }, reject);
+    });
+  }
+
+  findUniOnRange(param: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.httpClient
+        .get(environment.apiURL + 'university/findUniOnRange?' + param)
         .subscribe((response: any) => {
           resolve(response);
         }, reject);

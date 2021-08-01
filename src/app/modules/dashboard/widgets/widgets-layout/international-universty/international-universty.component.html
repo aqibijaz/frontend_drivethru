@@ -84,7 +84,7 @@
   <button id='target2' mat-flat-button color="primary">Find Universty</button>
   <form [formGroup]="findUniversity">
     <div class="row my-3 px-3">
-      <div class="col-6">
+      <!-- <div class="col-6">
         <mat-form-field style="width: 100%" appearance="fill">
           <mat-label>Universty Name</mat-label>
           <mat-select disableRipple formControlName="universty">
@@ -96,8 +96,20 @@
             University Name is requried
           </mat-error>
         </mat-form-field>
+      </div> -->
+      <div class="col-6">
+
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Select Price Range</mat-label>
+          <mat-select disableRipple formControlName="priceRange">
+            <mat-option *ngFor="let item of priceRanges" [value]="item.value">
+              {{ item.display }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
       </div>
-      <div class="col-6"></div>
+
     </div>
 
     <div class="row my-3 px-3">
@@ -131,8 +143,8 @@
 
     <div class="row mb-3 text-center">
       <div class="col-12">
-        <button mat-flat-button class="searchCounter" (click)="findUniversitySubmit()">
-          Find Your Countery <mat-icon>search</mat-icon>
+        <button mat-flat-button class="searchCounter" (click)="findUniOnRange()" [disabled]="findUniversity.invalid">
+          Find Your University<mat-icon>search</mat-icon>
         </button>
       </div>
     </div>
@@ -182,7 +194,7 @@
   <div class="row mb-3 text-center">
     <div class="col-12">
       <button mat-flat-button class="searchCounter">
-        Find Your Countery <mat-icon>search</mat-icon>
+        Find Your Countery<mat-icon>search</mat-icon>
       </button>
     </div>
   </div>
